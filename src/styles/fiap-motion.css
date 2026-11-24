@@ -1,0 +1,391 @@
+
+html[data-palette='fiap'] {
+  --fiap-accent: #ed145b;
+  --fiap-paper: #fff;
+}
+html[data-palette='fiap'] .pandora-journey {
+  background: #08090d;
+}
+html[data-palette='fiap'] .pandora-journey::before {
+  background: radial-gradient(ellipse at 85% 15%, #ed145b0a, transparent 65%), #08090d;
+}
+html[data-palette='fiap'] .journey-field .section-atmosphere {
+  mix-blend-mode: normal;
+}
+html[data-palette='fiap'] .entrance {
+  min-height: 760px;
+}
+html[data-palette='fiap'] .entrance-backdrop {
+  background: none;
+}
+html[data-palette='fiap'] .entrance-shade {
+  background: linear-gradient(90deg, #08090dba, transparent 75%);
+  z-index: 1;
+}
+html[data-palette='fiap'] .entrance-content {
+  text-align: left;
+  padding-inline: clamp(24px, 6vw, 120px);
+}
+html[data-palette='fiap'] .entrance h1 {
+  margin: 0;
+  max-width: 56%;
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(58px, 6.1vw, 110px);
+  font-weight: 850;
+  line-height: 1.01;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  text-wrap: initial;
+  text-shadow: none;
+}
+html[data-palette='fiap'] .entrance h1 em {
+  font-weight: 850;
+  color: #fff;
+}
+html[data-palette='fiap'] .entrance-eyebrow {
+  justify-content: flex-start;
+  font-family: var(--font-mono), monospace;
+  color: #f6a8c1;
+  letter-spacing: 0.1em;
+}
+html[data-palette='fiap'] .entrance-eyebrow span {
+  border-radius: 0;
+  box-shadow: none;
+  background: var(--fiap-accent);
+  width: 14px;
+  height: 3px;
+}
+html[data-palette='fiap'] .entrance-description {
+  margin-left: 0;
+  max-width: 440px;
+  color: #c9c9d0;
+}
+html[data-palette='fiap'] .entrance-actions {
+  justify-content: flex-start;
+}
+html[data-palette='fiap']
+  :is(.pandora-journey, .entrance-nav)
+  :is(button, a, .campus-plan, .img-editorial, .photo-reel-card, .portal-callout-panel) {
+  border-radius: 0;
+}
+html[data-palette='fiap'] .entrance-nav > div {
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-palette='fiap'] .entrance-primary {
+  background: var(--fiap-accent);
+  color: #fff;
+  border: 1px solid var(--fiap-accent);
+  font-family: var(--font-mono), monospace;
+  min-height: 52px;
+}
+html[data-palette='fiap'] .entrance-primary:is(:hover, :focus-visible) {
+  background: #b80e45;
+  gap: 26px;
+}
+html[data-palette='fiap'] .entrance-secondary {
+  font-family: var(--font-mono), monospace;
+}
+html[data-palette='fiap'] .pandora-journey :is(h2, h3) {
+  font-family: var(--font-body), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+html[data-palette='fiap'] .pandora-journey h2 {
+  text-transform: uppercase;
+}
+html[data-palette='fiap'] .pandora-journey :is(.round-arrow, .entrance-motion, .photo-reel-pause) {
+  border-radius: 0;
+}
+html[data-palette='fiap'] .pandora-journey a:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 5px;
+}
+html[data-palette='fiap'] .pandora-journey #areas li[data-reveal] > a {
+  transition:
+    border-color 0.25s,
+    background-color 0.25s;
+}
+html[data-palette='fiap'] .pandora-journey #areas li[data-reveal] > a:is(:hover, :focus-visible) {
+  border-color: var(--fiap-accent);
+  background-color: #ed145b0c;
+}
+html[data-palette='fiap'] .sakura-fallback {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 10%;
+  width: 51%;
+  height: 85%;
+  background: url('/assets/images/sakura-fallback-model.webp') center/contain no-repeat;
+  pointer-events: none;
+}
+html[data-palette='fiap']:has(.section-atmosphere canvas[data-ready='true']) .sakura-fallback {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .8s ease, visibility 0s linear .8s;
+}
+.sakura-fallback {
+  display: none;
+}
+@media (max-width: 767px) {
+  html[data-palette='fiap'] .entrance {
+    min-height: 1000px;
+    height: auto;
+    align-items: flex-start;
+  }
+  html[data-palette='fiap'] .entrance-content {
+    padding: 490px 24px 150px;
+  }
+  html[data-palette='fiap'] .entrance h1 {
+    max-width: 100%;
+    font-size: clamp(44px, 11.2vw, 72px);
+  }
+  html[data-palette='fiap'] .entrance-eyebrow {
+    font-size: 9px;
+    margin-bottom: 20px;
+  }
+  html[data-palette='fiap'] .entrance-description {
+    font-size: 15px;
+    margin-top: 22px;
+  }
+  html[data-palette='fiap'] .entrance-actions {
+    gap: 16px;
+    margin-top: 24px;
+  }
+  html[data-palette='fiap'] .entrance-shade {
+    background: linear-gradient(0deg, #08090d, transparent 75%);
+  }
+  html[data-palette='fiap'] .sakura-fallback {
+    top: 90px;
+    width: 100%;
+    height: 390px;
+  }
+}
+@media (min-width: 768px) and (max-height: 710px) {
+  html[data-palette='fiap'] .entrance {
+    min-height: 650px;
+  }
+  html[data-palette='fiap'] .entrance h1 {
+    font-size: clamp(55px, 5.3vw, 85px);
+  }
+}
+
+  html.motion-off[data-palette='fiap'] .journey-field .section-atmosphere {
+    opacity: 1;
+  }
+  html.motion-off[data-palette='fiap'] .pandora-journey * {
+    transition-duration: 0s !important;
+  }
+
+html[data-palette='fiap'].motion-off .journey-field .section-atmosphere {
+  opacity: 1;
+}
+/* Critical copy stays readable even when a browser throttles animation frames. */
+html[data-palette='fiap'] .entrance [data-entrance] {
+  opacity: 1 !important;
+}
+html[data-palette='fiap']
+  .pandora-journey
+  :is([class*='rounded'], .knowledge-areas li > a, .knowledge-areas li > a::after) {
+  border-radius: 0;
+}
+html[data-palette='fiap'] .pandora-journey .knowledge-areas ul.space-y-2 > li > a {
+  border-radius: 0;
+}
+html[data-palette='fiap'] .entrance-primary {
+  color: #08090d;
+  font-weight: 700;
+}
+html[data-palette='fiap'] .entrance-primary:is(:hover, :focus-visible) {
+  color: #fff;
+}
+
+/* Credit stays visible only where the licensed 3D tree is used. */
+.sakura-model-credit { display: none; }
+html[data-palette='fiap'] .sakura-model-credit { display: block; }
+
+/* Real model still has a tasteful animated petal fallback if WebGL is disabled. */
+.sakura-fallback-petals { display:none; pointer-events:none; }
+html[data-palette='fiap']:not(:has(.section-atmosphere canvas[data-ready='true'])) .sakura-fallback-petals {
+  display:block; position:fixed;inset:0;z-index:2;overflow:hidden;pointer-events:none;
+}
+.sakura-fallback-petals span {
+  position:absolute;left:var(--petal-left);top:-40px;
+  display:block;width:var(--petal-size);height:calc(var(--petal-size) * 1.5);
+  background:linear-gradient(135deg,#fff2f6 10%,#fa9dbe 58%,#ed145b);
+  opacity:.55; border-radius:70% 12% 70% 20%;filter:drop-shadow(0 0 3px #ed145b33);
+  animation:sakura-fallback-wind var(--petal-duration) linear infinite;
+  animation-delay:var(--petal-delay);
+}
+@keyframes sakura-fallback-wind {
+  0% {transform:translate3d(-18px,-30px,0) rotate(20deg) rotateY(0deg);opacity:0;}
+  10% {opacity:.63;}
+  40% {transform:translate3d(34px,44vh,0) rotate(156deg) rotateY(80deg);}
+  70% {transform:translate3d(-22px,81vh,0) rotate(280deg) rotateY(130deg);opacity:.68;}
+  100% {transform:translate3d(65px,120vh,0) rotate(410deg) rotateY(180deg);opacity:0;}
+}
+@media(max-width:767px) { .sakura-fallback-petals span:nth-child(n+9) {display:none;} }
+:where(html.motion-off) .sakura-fallback-petals span {animation:none;display:none;}
+html.motion-off .sakura-fallback-petals span {animation:none;display:none;}
+/* The hero's pause button also pauses fallback petals when WebGL is unavailable. */
+html[data-palette='fiap']:has(.entrance-motion[aria-pressed='true']) .sakura-fallback-petals span {
+  animation-play-state: paused;
+}
+
+
+html[data-palette='fiap'] .pandora-journey::before {
+  background:
+    radial-gradient(ellipse 42% 54% at 78% 26%, rgba(221,55,117,.105), transparent 80%),
+    radial-gradient(ellipse 52% 45% at 14% 68%, rgba(99,49,92,.085), transparent 78%),
+    radial-gradient(ellipse 75% 60% at 52% 110%, rgba(237,20,91,.045), transparent 80%),
+    #08090d;
+}
+/* The natural branch texture is not allowed to look like an abruptly cut trunk.
+   Dissolve the bottom 14% into the following atmospheric section. */
+html[data-palette='fiap'] .entrance::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: clamp(95px, 16vh, 205px);
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(8,9,13,.42) 40%, #08090d 99%);
+}
+html[data-palette='fiap'] .entrance-footer {
+  z-index: 4;
+}
+html[data-palette='fiap'] .sakura-fallback {
+  top: 15%;
+  width: 47%;
+  height: 74%;
+  background-size: contain;
+  background-position: center bottom;
+  filter: saturate(.86) contrast(1.03);
+}
+/* The supplied photo itself is complete; avoid bright loading surfaces in case
+   the GPU defers a layer during the FIAP-only entrance reveal. */
+html[data-palette='fiap'] #sobre .img-editorial {
+  background: #121017;
+  isolation: isolate;
+}
+html[data-palette='fiap'] #sobre .img-editorial img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: auto;
+  transform: none;
+}
+@media(max-width:767px) {
+  html[data-palette='fiap'] .sakura-fallback {
+    top: 105px;
+    width: 95%;
+    left: 2.5%;
+    right: auto;
+    height: 345px;
+    background-position: center bottom;
+  }
+  html[data-palette='fiap'] .entrance::after {
+    height: 100px;
+  }
+}
+
+  html.motion-off[data-palette='fiap'] .entrance::after { transition:none; }
+
+
+
+html[data-palette='fiap'] .sakura-fallback {
+  right: auto;
+  left: 43%;
+  top: 8%;
+  width: 55%;
+  height: 87%;
+  background-position: 50% 100%;
+  background-size: contain;
+  transform-origin: 53% 96%;
+  animation: pandora-sakura-fallback-breeze 8.4s ease-in-out infinite alternate;
+  transition: opacity .8s ease, visibility 0s linear 0s;
+  will-change: transform, opacity;
+}
+@keyframes pandora-sakura-fallback-breeze {
+  0% { transform: rotate(-.45deg) translate3d(-2px,0,0); }
+  50% { transform: rotate(.65deg) translate3d(2px,-2px,0); }
+  100% { transform: rotate(-.2deg) translate3d(-1px,1px,0); }
+}
+/* The tree base is inside the hero. Fade the editorial seam, not the roots. */
+html[data-palette='fiap'] .entrance::after {
+  height: clamp(70px,11vh,132px);
+  background:linear-gradient(to bottom,transparent,rgba(8,9,13,.18) 52%, #08090d 100%);
+}
+@media(max-width:767px) {
+  html[data-palette='fiap'] .sakura-fallback {
+    top: 95px;
+    left: 0;
+    right: auto;
+    width: 100%;
+    height: 380px;
+  }
+  html[data-palette='fiap'] .entrance::after {height:82px;}
+}
+
+  html.motion-off[data-palette='fiap'] .sakura-fallback {animation:none;will-change:auto;}
+
+html.motion-off[data-palette='fiap'] .sakura-fallback {animation:none;will-change:auto;}
+
+
+html[data-palette='fiap'] .sakura-fallback {
+  left: 47%;
+  top: 4%;
+  width: 55%;
+  height: 93%;
+  background-position: 50% 100%;
+}
+@media (max-width:767px) {
+  html[data-palette='fiap'] .sakura-fallback {
+    left: 1%;
+    top: 82px;
+    width: 100%;
+    height: 400px;
+  }
+}
+/* Keep the content readable over roots. Root trails themselves are drawn in
+   the single shared WebGL scene behind every section and the campus map. */
+html[data-palette='fiap'] .pandora-journey > main { isolation: isolate; }
+
+
+html[data-palette='fiap'] .entrance::after {
+  content: none;
+  display: none;
+}
+html[data-palette='fiap'] .entrance-shade {
+  background: linear-gradient(
+    90deg,
+    rgba(8, 9, 13, .65) 0%,
+    rgba(8, 9, 13, .27) 48%,
+    rgba(8, 9, 13, .06) 76%,
+    transparent 100%
+  );
+}
+@media (max-width: 767px) {
+  html[data-palette='fiap'] .entrance-shade {
+    background: linear-gradient(
+      to top, rgba(8, 9, 13, .62), rgba(8, 9, 13, .12) 44%, transparent 84%
+    );
+  }
+}
+
+/* FIAP on phones: a subtle spatial setting at the 3D sakura's exact ground
+   region. The real earth contour remains in the shared WebGL scene. */
+@media (max-width: 767px) {
+  html[data-palette='fiap'] .entrance::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 55% 9% at 52% 45.5%, rgba(154, 62, 92, .19), transparent 100%),
+      radial-gradient(ellipse 70% 31% at 52% 28%, rgba(143, 49, 94, .10), transparent 80%);
+  }
+}
