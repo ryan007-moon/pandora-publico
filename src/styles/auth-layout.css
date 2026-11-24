@@ -1,0 +1,217 @@
+/* PANDORA / AUTHENTICATION SCENE — single source of truth for both login roles
+   and the enrollment screen. The decorative canvas must not enter the layout flow. */
+.auth-experience {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  overflow-x: clip;
+  background: var(--p-color-f4efe4);
+}
+
+/* Desktop: content, logo and disclaimer are the three flex rows. */
+.auth-experience > aside {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 100svh;
+  background-color: var(--p-color-090b0a);
+}
+.login-experience > aside {
+  background:
+    linear-gradient(90deg, rgba(var(--p-rgb-7-8-8),.70), rgba(var(--p-rgb-7-8-8),.48) 52%, rgba(var(--p-rgb-7-8-8),.82)),
+    linear-gradient(0deg, rgba(var(--p-rgb-7-8-8),.90), transparent 54%),
+    url('/assets/images/landing-sobre.jpg') center/cover no-repeat;
+}
+.inscription-experience > aside {
+  background:
+    radial-gradient(ellipse 74% 80% at 82% 46%,rgba(var(--p-rgb-123-83-17),.28),transparent 85%),
+    linear-gradient(145deg, var(--p-color-080b0a), var(--p-color-16140d) 50%, var(--p-color-070908));
+}
+.auth-experience > aside > :not(.auth-motion-layer) {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.auth-experience > aside > :last-child:not(.auth-motion-layer) {
+  backdrop-filter: blur(10px);
+  background-color: rgba(var(--p-rgb-6-8-7),.45);
+}
+
+/* These rules were accidentally removed in R5, causing the canvas to render
+   as a 300×150 inline rectangle and displacing the flex children. */
+.auth-experience .auth-motion-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+.auth-experience .auth-ambient-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.auth-experience > aside > .auth-motion-layer {
+  opacity: .84;
+  mix-blend-mode: screen;
+}
+
+/* Centered, restrained auth composition: no cropped square canvas. */
+.auth-experience > aside > .auth-motion-layer { opacity: .66; }
+.auth-experience .auth-form-content { max-width: 410px; width: 100%; margin-inline: auto; }
+.auth-experience .auth-mobile-brand { align-items:center; justify-content:center; }
+/* Legacy auth overrides from experience.css have been removed. */
+.auth-experience > aside > div.max-w-lg { padding-top: 0; }
+.auth-experience.login-experience .auth-input {
+  border: 1px solid var(--p-color-988e78);
+  border-radius: 12px;
+  padding: 15px 17px;
+  background: rgba(var(--p-rgb-251-248-241),.82);
+  font-size: 15px;
+}
+@media (min-width:1024px) {
+  .auth-experience .auth-surface { border-radius: 28px 0 0 28px; }
+}
+/* Form content always floats above the canvas and the subtle ornamental glow. */
+.auth-experience .auth-surface {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  overflow: hidden;
+  background-color: var(--p-color-f4efe4);
+  color: var(--p-color-111);
+}
+.auth-experience .auth-surface > :not(.auth-motion-layer) {
+  position: relative;
+  z-index: 2;
+}
+.auth-experience .auth-surface > .auth-motion-layer--form {
+  opacity: .19;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 90% 82% at 85% 14%,black 5%,rgba(var(--p-rgb-0-0-0),.8) 43%,transparent 90%);
+  mask-image: radial-gradient(ellipse 90% 82% at 85% 14%,black 5%,rgba(var(--p-rgb-0-0-0),.8) 43%,transparent 90%);
+}
+.auth-experience .auth-surface::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 75%;
+  aspect-ratio: 1;
+  top: -42%;
+  right: -36%;
+  border: 1px solid rgba(var(--p-rgb-157-104-14),.11);
+  border-radius: 50%;
+  box-shadow: 0 0 0 56px rgba(var(--p-rgb-157-104-14),.027), 0 0 0 134px rgba(var(--p-rgb-157-104-14),.019);
+  pointer-events: none;
+}
+.auth-experience .auth-input {
+  min-height: 52px;
+  font-size: 16px;
+  transition: border-color .25s ease, box-shadow .3s ease, background .25s ease;
+}
+.auth-experience .auth-input:focus {
+  border-color: var(--p-color-bd8613);
+  box-shadow: 0 13px 28px -24px rgba(var(--p-rgb-151-97-7),.48);
+}
+.auth-experience .auth-surface :is(button[type='submit'],a.btn-sweep) {
+  transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease;
+}
+@media (hover:hover) {
+  .auth-experience .auth-surface :is(button[type='submit'],a.btn-sweep):hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 38px -21px rgba(var(--p-rgb-174-117-16),.45);
+  }
+}
+
+/* Tablets and phones: no hidden desktop pane, no fake second canvas, no
+   vertical centering that leaves the logo or form outside a small viewport. */
+@media (max-width:1023px) {
+  .auth-experience {
+    display: block;
+    min-height: 100svh;
+  }
+  .auth-experience > aside { display: none; }
+  .auth-experience .auth-surface {
+    display: flex;
+    width: 100%;
+    min-height: 100svh;
+    justify-content: flex-start;
+    padding-top: clamp(25px,4.8vh,50px);
+    padding-bottom: max(44px, env(safe-area-inset-bottom));
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .auth-experience .auth-surface > .auth-motion-layer--form {
+    inset: 0 0 auto;
+    height: clamp(230px, 43svh, 370px);
+    opacity: .29;
+    -webkit-mask-image: linear-gradient(black 0%,rgba(var(--p-rgb-0-0-0),.95) 25%,transparent 100%);
+    mask-image: linear-gradient(black 0%,rgba(var(--p-rgb-0-0-0),.95) 25%,transparent 100%);
+  }
+  .auth-experience .auth-surface::before {
+    width: min(95vw, 590px);
+    top: -23vw;
+    right: -45vw;
+  }
+  .auth-experience .auth-surface > :not(.auth-motion-layer) {
+    width: 100%;
+    max-width: 460px;
+    margin-inline: auto;
+  }
+  .auth-experience .auth-surface h2 {
+    font-size: clamp(34px,7vw,49px);
+    line-height: 1.03;
+    letter-spacing: -.055em;
+  }
+  .auth-experience .auth-surface [data-login].mb-8,
+  .auth-experience .auth-surface [data-inscricao].mb-8 {
+    margin-bottom: 24px;
+  }
+}
+@media (max-width:479px) {
+  .auth-experience .auth-surface { padding-inline: 22px; }
+  .auth-experience .auth-surface h2 { font-size: clamp(34px, 9.5vw, 43px); }
+  .auth-experience .auth-surface form { margin-top: 26px; }
+  .auth-experience .auth-surface form > .mb-7 { margin-bottom: 21px; }
+}
+@media (min-width:1024px) and (max-height:740px) {
+  .auth-experience > aside { padding-block: 28px; }
+  .auth-experience .auth-surface { padding-block: 34px; }
+  .auth-experience > aside > div.max-w-lg { padding-top: 0; }
+}
+
+@keyframes pandora-auth-reveal {
+  from { opacity: 0; transform: translate3d(0,16px,0); }
+  to { opacity: 1; transform: translate3d(0,0,0); }
+}
+
+  :where(html:not(.motion-off)) .auth-experience > aside > a { animation: pandora-auth-reveal .75s .06s both cubic-bezier(.16,1,.3,1); }
+  :where(html:not(.motion-off)) .auth-experience > aside > div:not(.auth-motion-layer) { animation: pandora-auth-reveal .95s .15s both cubic-bezier(.16,1,.3,1); }
+
+
+  :where(html.motion-off) .auth-experience > aside > :not(.auth-motion-layer) { animation: none !important; }
+  :where(html.motion-off) .auth-experience .auth-surface :is(button[type='submit'],a.btn-sweep) { transition: none !important; }
+
+html.motion-off .auth-experience > aside > :not(.auth-motion-layer) { animation: none !important; }
+html.motion-off .auth-experience .auth-surface :is(button[type='submit'],a.btn-sweep) { transition: none !important; }
+
+
+/* iOS Safari automatically zooms focused inputs below 16px.
+   Keep browser pinch zoom enabled; only eliminate involuntary field zoom. */
+@media (max-width: 1023px) {
+  .auth-experience.login-experience .auth-input,
+  .auth-experience input:not([type='checkbox']):not([type='radio']):not([type='hidden']),
+  .auth-experience select,
+  .auth-experience textarea,
+  .portal-shell input:not([type='checkbox']):not([type='radio']):not([type='hidden']),
+  .portal-shell select,
+  .portal-shell textarea {
+    font-size: 16px !important;
+    -webkit-text-size-adjust: 100%;
+  }
+}
