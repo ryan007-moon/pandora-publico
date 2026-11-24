@@ -1,0 +1,1277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DESIGN TOKENS — PANDORA SCHOOL
+   Direção de arte: "O Portal" (preto · osso · ouro).
+   Todos os componentes consomem estes tokens; o modo escuro apenas os reatribui.
+   ============================================================ */
+:root {
+  --background: var(--p-color-f4efe4);
+  --foreground: var(--p-color-111111);
+  --surface: var(--p-color-fbf8f1);
+  --primary: var(--p-color-f2b824);
+  --primary-foreground: var(--p-color-0d0d0d);
+  --secondary: var(--p-color-0d0d0d);
+  --secondary-foreground: var(--p-color-f4efe4);
+  --accent: var(--p-color-ecdfb8);
+  --accent-foreground: var(--p-color-3d2f00);
+  --muted: var(--p-color-e8e1d0);
+  --muted-foreground: var(--p-color-5d584c);
+  --card: var(--p-color-fbf8f1);
+  --card-foreground: var(--p-color-111111);
+  --border: var(--p-color-d6cdb6);
+  --input: var(--p-color-bfb59a);
+  --ring: var(--p-color-c48f00);
+  --radius: 14px;
+  --success: var(--p-color-2f6b3a);
+  --success-foreground: var(--p-color-ffffff);
+  --warning: var(--p-color-9a5b00);
+  --warning-foreground: var(--p-color-ffffff);
+  --destructive: var(--p-color-a32d1f);
+  --destructive-foreground: var(--p-color-ffffff);
+  --sidebar: var(--p-color-0d0d0d);
+  --sidebar-foreground: var(--p-color-f4efe4);
+  --sidebar-muted: var(--p-color-a39d8c);
+  --gold-dark: var(--p-color-8a6200);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dark {
+  --background: var(--p-color-0b0b0a);
+  --foreground: var(--p-color-f4efe4);
+  --surface: var(--p-color-151513);
+  --primary: var(--p-color-f2b824);
+  --primary-foreground: var(--p-color-0d0d0d);
+  --secondary: var(--p-color-f4efe4);
+  --secondary-foreground: var(--p-color-0d0d0d);
+  --accent: var(--p-color-2a2410);
+  --accent-foreground: var(--p-color-f2d57a);
+  --muted: var(--p-color-1c1b18);
+  --muted-foreground: var(--p-color-a8a291);
+  --card: var(--p-color-151513);
+  --card-foreground: var(--p-color-f4efe4);
+  --border: var(--p-color-2d2b25);
+  --input: var(--p-color-4a463b);
+  --ring: var(--p-color-f2b824);
+  --success: var(--p-color-6fcf84);
+  --success-foreground: var(--p-color-0d0d0d);
+  --warning: var(--p-color-f0a93a);
+  --warning-foreground: var(--p-color-0d0d0d);
+  --destructive: var(--p-color-ff8a78);
+  --destructive-foreground: var(--p-color-0d0d0d);
+  --sidebar: var(--p-color-050505);
+  --sidebar-foreground: var(--p-color-f4efe4);
+  --sidebar-muted: var(--p-color-a39d8c);
+  --gold-dark: var(--p-color-f2b824);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  figure {
+    margin: 0;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .font-mono-data {
+    font-family: var(--font-mono), monospace;
+    letter-spacing: -0.01em;
+  }
+  .eyebrow {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+  .text-display-xl {
+    font-size: clamp(2.6rem, 7vw, 6rem);
+    line-height: 0.93;
+    letter-spacing: -0.04em;
+  }
+  .text-display-lg {
+    font-size: clamp(2rem, 4.2vw, 3.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+  .rule-top {
+    border-top: 1px solid var(--foreground);
+  }
+  .shadow-card {
+    box-shadow:
+      0 1px 0 var(--border),
+      0 18px 40px -24px rgba(var(--p-rgb-0-0-0),0.35);
+  }
+  .shadow-gold {
+    box-shadow: 0 12px 28px -10px rgba(var(--p-rgb-242-184-36),0.6);
+  }
+  /* Pílula: chips, tags e navegação — contorno contínuo, sem arestas */
+  .pill {
+    border-radius: 9999px;
+    border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  }
+  /* Painel suave: cartão com raio generoso e sombra difusa (profundidade leve) */
+  .panel {
+    background: var(--card);
+    border-radius: 28px;
+    box-shadow:
+      0 1px 0 var(--border),
+      0 24px 48px -28px rgba(var(--p-rgb-0-0-0),0.3);
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0.12;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .shimmer {
+    background: linear-gradient(90deg, var(--muted) 25%, var(--border) 50%, var(--muted) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+  }
+  .hide-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: block;
+  }
+  /* Sublinhado animado para links editoriais */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s var(--ease-out-expo);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+  /* Botão primário com varredura dourada */
+  .btn-sweep {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-sweep::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--foreground);
+    transform: translateY(101%);
+    transition: transform 0.45s var(--ease-out-expo);
+  }
+  .btn-sweep:hover::before {
+    transform: translateY(0);
+  }
+  .btn-sweep:hover {
+    color: var(--background);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.12) translate(-1.5%, -1%);
+  }
+}
+
+.kenburns {
+  animation: kenburns 9s ease-out forwards;
+}
+
+@keyframes progress-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+  :where(html.motion-off) *,
+  :where(html.motion-off) *::before,
+  :where(html.motion-off) *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+
+/* ============================================================
+   DIREÇÃO DE ARTE — "A ESCOLA COMO PUBLICAÇÃO VIVA"
+   Aulas como capítulos; ouro usado em linhas, réguas e glifos
+   (nunca em blocos); composição de catálogo/índice editorial.
+   ============================================================ */
+
+/* Ênfase em títulos — Bricolage não possui itálico real: o contraste vem
+   do eixo de largura expandida + peso máximo (evita itálico sintético) */
+.display-em {
+  font-style: normal;
+  font-variation-settings:
+    'opsz' 96,
+    'wdth' 100;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* Régua dourada desenhável (GSAP anima scaleX de 0 → 1) */
+.rule-gold {
+  height: 2px;
+  background: var(--primary);
+  transform-origin: left center;
+}
+
+/* Máscara para reveal linha a linha (overflow hidden + GSAP yPercent) */
+.mask-line {
+  display: block;
+  overflow: hidden;
+}
+
+/* Traço do "spark" (faísca sobre o Ó, extraído da marca) */
+.spark-stroke {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Numeral display oversized (indicadores de índice) */
+.numeral-display {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+/* Linha de índice (01 · título · descrição →) usada no lugar de cards */
+.index-row {
+  border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  transition:
+    background-color 0.45s var(--ease-out-expo),
+    padding-left 0.45s var(--ease-out-expo);
+}
+.index-row:last-child {
+  border-bottom: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+@media (hover: hover) {
+  .index-row:not(.accessibility-row):hover {
+    padding-left: 1.25rem;
+    background-color: color-mix(in srgb, currentColor 4%, transparent);
+  }
+}
+
+/* Recorte de fotografia "O Portal": raio herdado do contêiner (aplicado no
+   JSX com rounded-2xl/3xl) + filete interno sutil, sem moldura dura */
+.img-editorial {
+  position: relative;
+  border-radius: inherit;
+  isolation: isolate;
+}
+.img-editorial::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Marca d'água tipográfica escura (fundo claro) */
+.text-stroke-dark {
+  -webkit-text-stroke: 1px rgba(var(--p-rgb-13-13-13),0.1);
+  color: transparent;
+}
+
+/* Ficha/legenda de gravura (mono, quase imperceptível) */
+.plate-caption {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Indicador de rolagem do hero */
+@keyframes scroll-hint {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+}
+.scroll-dot {
+  animation: scroll-hint 2.2s var(--ease-out-expo) infinite;
+}
+
+/* Pulso dos pins da prévia do campus (SVG) */
+@keyframes pin-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+.pin-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pin-pulse 2.4s var(--ease-out-expo) infinite;
+}
+
+/* Marca d'água tipográfica (contorno sutil) */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(var(--p-rgb-244-239-228),0.13);
+  color: transparent;
+}
+
+/* ============================================================
+   MAPA DO CAMPUS (rota "/mapa") — ETAPA 4
+   ============================================================ */
+
+/* Linha dourada da rota "correndo" (dashoffset animado) */
+@keyframes rota-correndo {
+  to {
+    stroke-dashoffset: -48;
+  }
+}
+.rota-linha {
+  stroke-dasharray: 16 8;
+  animation: rota-correndo 1.6s linear infinite;
+}
+
+/* ============================================================
+   CENTRAL DE ACESSIBILIDADE (rota "/acessibilidade") — ETAPA 5
+   Preferências manuais aplicadas no <html> pelo PreferencesProvider.
+   ============================================================ */
+
+/* Movimento reduzido manual: congela animações e transições do portal */
+html.motion-off *,
+html.motion-off *::before,
+html.motion-off *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+html.motion-off .rota-linha,
+html.motion-off .pin-pulse,
+html.motion-off .scroll-dot,
+html.motion-off .pulse-dot,
+html.motion-off .kenburns,
+html.motion-off .shimmer,
+html.motion-off .portal-auto,
+html.motion-off .portal-orbiter,
+html.motion-off .portal-dash {
+  animation: none !important;
+}
+
+/* Alto contraste manual: reforça bordas e textos secundários nos dois temas */
+html.contrast-high {
+  --muted-foreground: var(--p-color-33302a);
+  --border: var(--p-color-8f8672);
+  --input: var(--p-color-6b6450);
+  --muted: var(--p-color-ddd5c0);
+}
+html.contrast-high.dark {
+  --muted-foreground: var(--p-color-ece6d6);
+  --border: var(--p-color-beb59c);
+  --input: var(--p-color-d6cdaf);
+  --muted: var(--p-color-26241f);
+}
+/* ============================================================
+   PORTAL DE PANDORA — momento 3D da capa (CSS nativo:
+   perspective + preserve-3d). Elemento decorativo (aria-hidden
+   na cena); arraste por ponteiro e botões acessíveis giram o
+   conjunto. Sem JS: anéis continuam girando via CSS.
+   ============================================================ */
+.portal-scene {
+  perspective: 1150px;
+  perspective-origin: 50% 42%;
+}
+
+.portal-tilt,
+.portal-auto,
+.portal-plane {
+  transform-style: preserve-3d;
+}
+
+.portal-tilt {
+  will-change: transform;
+}
+
+/* Rotação contínua do giroscópio (desligada em movimento reduzido) */
+@keyframes portal-orbit {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.portal-auto {
+  animation: portal-orbit 26s linear infinite;
+}
+
+/* Plano de anel: círculo absoluto centrado, com trilho interno pontilhado */
+.portal-plane {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 9999px;
+  border-style: solid;
+}
+.portal-plane::after {
+  content: '';
+  position: absolute;
+  inset: 13%;
+  border-radius: inherit;
+  border: 1px dashed rgba(var(--p-rgb-244-239-228),0.22);
+}
+
+/* Conta deslizante ao longo da borda de um plano */
+@keyframes portal-orbit-z {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+.portal-orbiter {
+  position: absolute;
+  inset: 0;
+  animation: portal-orbit-z 13s linear infinite;
+}
+.portal-orbiter[data-ritmo='lento'] {
+  animation-duration: 21s;
+}
+.portal-orbiter[data-ritmo='rapido'] {
+  animation-duration: 9s;
+}
+.portal-bead {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, var(--p-color-ffd76b), var(--p-color-f2b824) 55%, var(--p-color-8a6200));
+  box-shadow: 0 0 12px rgba(var(--p-rgb-242-184-36),0.55);
+}
+
+/* Disco-selo central (não gira com a órbita; acompanha o arraste) */
+.portal-core {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 27%;
+  height: 27%;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 32% 28%, var(--p-color-ffd76b) 0%, var(--p-color-f2b824) 46%, var(--p-color-b97e00) 100%);
+  box-shadow:
+    0 0 0 6px rgba(var(--p-rgb-242-184-36),0.14),
+    0 0 46px rgba(var(--p-rgb-242-184-36),0.35),
+    inset 0 -10px 24px rgba(var(--p-rgb-13-13-13),0.32);
+}
+
+/* Órbita externa pontilhada (rotação 2D lenta, fora do giroscópio) */
+@keyframes portal-2d {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.portal-dash {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 116%;
+  height: 116%;
+  border-radius: 9999px;
+  border: 1px dashed rgba(var(--p-rgb-244-239-228),0.14);
+  animation: portal-2d 90s linear infinite;
+}
+
+/* Sombra de apoio no "chão" da cena */
+.portal-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -6%;
+  width: 64%;
+  height: 11%;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: radial-gradient(ellipse at center, rgba(var(--p-rgb-0-0-0),0.55) 0%, transparent 72%);
+  filter: blur(10px);
+}
+
+/* ============================================================
+   CARTEIRINHA 3D DO PERFIL (CSS nativo + tilt por JS).
+   Três camadas: wrapper (perspective) → flutuação contínua (CSS,
+   garante o momento 3D sem mouse) → inclinação interativa (JS:
+   ponteiro/toque/teclado). Brilho de luz acompanha a inclinação.
+   ============================================================ */
+.carteira-cena {
+  perspective: 1100px;
+}
+
+.carteira-float {
+  transform-style: preserve-3d;
+}
+
+/* The student ID is an intentional cinematic exception inside the portal.
+   Animate the outer wrapper, leaving the interactive flip independent. */
+html:not(.motion-off) .carteira-float {
+  animation: carteira-flutuar 7.5s ease-in-out infinite;
+}
+
+  html.motion-off .carteira-float { animation: none; }
+
+
+/* Mobile drift is translation-only to avoid oscillating nested rotations
+   that originally triggered backface flicker in Safari. */
+@keyframes carteira-flutuar-mobile {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -5px, 0); }
+}
+@media (hover: none) and (pointer: coarse) {
+  html:not(.motion-off) .carteira-float {
+    animation: carteira-flutuar-mobile 7.5s ease-in-out infinite;
+  }
+}
+
+.carteira-interacao {
+  perspective: 1100px;
+  touch-action: pan-y;
+}
+
+@keyframes carteira-flutuar {
+  0%,
+  100% {
+    transform: translateY(0) rotateY(-2.5deg) rotateX(1deg);
+  }
+  50% {
+    transform: translateY(-8px) rotateY(2.5deg) rotateX(-1deg);
+  }
+}
+
+.carteira-tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+  /* Toque: arraste horizontal inclina; vertical continua rolando a página */
+  touch-action: pan-y;
+}
+
+.carteira-brilho {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--gx, 50%) var(--gy, 24%),
+    rgba(var(--p-rgb-244-239-228),0.32) 0%,
+    rgba(var(--p-rgb-244-239-228),0.08) 34%,
+    transparent 62%
+  );
+  mix-blend-mode: soft-light;
+}
+
+/* Camadas internas ganham profundidade real (parallax no tilt) */
+.carteira-camada {
+  transform-style: preserve-3d;
+}
+
+/* Movimento reduzido (sistema ou manual): sem flutuação e sem brilho animado;
+   a inclinação por teclado/ponteiro é desligada no componente (JS). */
+
+  :where(html.motion-off) .carteira-float {
+    animation: none;
+  }
+
+html.motion-off .carteira-float {
+  animation: none !important;
+}
+
+/* ---- Refinamento da carteirinha (flip frente/verso + luz + holograma) ---- */
+.carteira-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Varredura de luz única na entrada (animada por GSAP, uma vez). */
+.carteira-vaivem {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 42%,
+    rgba(var(--p-rgb-244-239-228),0.25) 50%,
+    transparent 58%
+  );
+  background-size: 260% 100%;
+  background-position: 130% 0;
+  mix-blend-mode: screen;
+}
+
+/* Holograma decorativo de cartão de identidade (gira matiz lentamente). */
+.carteira-holo {
+  background: conic-gradient(from 8deg, var(--p-color-f2b824), var(--p-color-f4efe4), var(--p-color-a97c1a), var(--p-color-fff6dd), var(--p-color-f2b824));
+  animation: holo-girar 16s linear infinite;
+}
+@keyframes holo-girar {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+  :where(html.motion-off) .carteira-holo {
+    animation: none;
+  }
+
+html.motion-off .carteira-holo {
+  animation: none !important;
+}
+
+/* Sombra de chão: acompanha a inclinação (atualizada por JS) — vende a profundidade. */
+.carteira-sombra-chao {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -14px;
+  height: 30px;
+  border-radius: 9999px;
+  background: radial-gradient(ellipse at center, rgba(var(--p-rgb-0-0-0),0.55) 0%, transparent 70%);
+  filter: blur(12px);
+}
+
+/* Fundos: luz de papel e arcos do portal. Estáticos, sem camadas sobre cliques. */
+.pandora-backdrop {
+  background-color: transparent; /* o papel fica no body — o ambiente fica em FundoAmbiente */
+  background-image:
+    radial-gradient(
+      ellipse 560px 500px at 100% 0,
+      transparent 59.5%,
+      color-mix(in srgb, var(--gold-dark) 9%, transparent) 59.7%,
+      transparent 60.1%
+    ),
+    radial-gradient(
+      ellipse 560px 500px at 100% 0,
+      transparent 73.5%,
+      color-mix(in srgb, var(--gold-dark) 7%, transparent) 73.7%,
+      transparent 74.1%
+    ),
+    radial-gradient(
+      ellipse 800px 650px at 100% 0,
+      color-mix(in srgb, var(--primary) 13%, transparent),
+      transparent 75%
+    ),
+    radial-gradient(
+      ellipse 750px 850px at 0 65%,
+      color-mix(in srgb, var(--primary) 6%, transparent),
+      transparent 75%
+    );
+  background-repeat: no-repeat;
+}
+
+/* ============================================================
+   FUNDO AMBIENTE — profundidade viva (aparece em toda a SPA).
+   Dois poços de luz dourada em deriva imperceptível + textura
+   diagonal discreta. Tokens por tema; transform anima (GPU);
+   deriva desligada com movimento reduzido (estático permanece).
+   ============================================================ */
+:root {
+  --ambiente-a: color-mix(in srgb, var(--primary) 10%, transparent);
+  --ambiente-b: color-mix(in srgb, var(--p-color-fffef7) 55%, transparent);
+  --ambiente-trama: rgba(var(--p-rgb-13-13-13),0.016);
+  --ambiente-vinheta: rgba(var(--p-rgb-61-47-0),0.05);
+}
+.dark {
+  --ambiente-a: color-mix(in srgb, var(--primary) 9%, transparent);
+  --ambiente-b: color-mix(in srgb, var(--p-color-ffffff) 4%, transparent);
+  --ambiente-trama: rgba(var(--p-rgb-244-239-228),0.018);
+  --ambiente-vinheta: rgba(var(--p-rgb-0-0-0),0.5);
+}
+.fundo-ambiente {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      115deg,
+      transparent 0 26px,
+      var(--ambiente-trama) 26px 27px
+    ),
+    radial-gradient(130% 95% at 50% 118%, transparent 58%, var(--ambiente-vinheta) 100%);
+}
+.fundo-ambiente-poco {
+  position: absolute;
+  border-radius: 9999px;
+  will-change: transform;
+}
+.fundo-ambiente-poco--a {
+  top: -18vh;
+  left: 30vw;
+  width: 70vw;
+  height: 70vh;
+  background: radial-gradient(closest-side, var(--ambiente-a), transparent 82%);
+  animation: ambiente-deriva-a 28s ease-in-out infinite alternate;
+}
+.fundo-ambiente-poco--b {
+  top: 52vh;
+  left: -14vw;
+  width: 56vw;
+  height: 74vh;
+  background: radial-gradient(closest-side, var(--ambiente-b), transparent 78%);
+  animation: ambiente-deriva-b 34s ease-in-out infinite alternate;
+}
+@keyframes ambiente-deriva-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-7vw, 10vh, 0) scale(1.09);
+  }
+}
+@keyframes ambiente-deriva-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.06);
+  }
+  to {
+    transform: translate3d(9vw, -8vh, 0) scale(1);
+  }
+}
+
+  :where(html.motion-off) .fundo-ambiente-poco--a,
+  :where(html.motion-off) .fundo-ambiente-poco--b {
+    animation: none;
+  }
+
+html.motion-off .fundo-ambiente-poco--a,
+html.motion-off .fundo-ambiente-poco--b {
+  animation: none;
+}
+
+.disciplina-card {
+  box-shadow:
+    0 2px 0 color-mix(in srgb, var(--border) 65%, transparent),
+    0 16px 32px -25px rgba(var(--p-rgb-20-16-5),0.3);
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+.disciplina-card:focus-within,
+.disciplina-card:hover {
+  border-color: var(--ring);
+  box-shadow:
+    0 2px 0 color-mix(in srgb, var(--primary) 45%, transparent),
+    0 20px 40px -26px rgba(var(--p-rgb-20-16-5),0.4);
+}
+.disciplina-foto {
+  transition: transform 0.7s var(--ease-out-expo);
+}
+@media (hover: hover) {
+  html:not(.motion-off) .disciplina-card:hover .disciplina-foto {
+    transform: scale(1.035);
+  }
+}
+.projeto-card:target {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 24%, transparent);
+}
+.entrega-panel {
+  background: radial-gradient(ellipse at 100% 0, var(--p-color-4a391a) 0, transparent 75%), var(--p-color-171714);
+}
+/* Único CTA físico do portal: a caixa clicável é fixa; só a face se move. */
+.entrega-button {
+  padding-bottom: 5px;
+  background: var(--p-color-92630c);
+  box-shadow:
+    0 2px 0 var(--p-color-5b3d09),
+    0 7px 14px rgba(var(--p-rgb-0-0-0),0.3);
+}
+.entrega-button-face {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid var(--p-color-ffe4a0);
+  border-radius: inherit;
+  color: var(--p-color-241800);
+  background: linear-gradient(180deg, var(--p-color-ffdc77), var(--p-color-f2b824) 75%, var(--p-color-e8a91b));
+  box-shadow:
+    inset 0 1px 0 var(--p-color-fff2c7),
+    inset 0 -1px 0 rgba(var(--p-rgb-117-73-0),0.18);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.3;
+  transition:
+    transform 0.14s ease-out,
+    filter 0.14s ease-out;
+}
+.entrega-button:hover .entrega-button-face {
+  filter: brightness(1.06);
+}
+.entrega-button:active .entrega-button-face {
+  transform: translateY(4px);
+}
+.hackathon-banner {
+  background:
+    radial-gradient(
+      ellipse 420px 320px at 100% 0,
+      transparent 58%,
+      var(--p-color-f2b82424) 58.3%,
+      transparent 58.8%
+    ),
+    radial-gradient(ellipse at 100% 0, var(--p-color-443719), transparent 70%), var(--p-color-151512);
+}
+
+/* ============================================================
+   MEDALHAS PREMIUM (projetos > conquistas) — objetos de conquista
+   com materiais por nível (ouro · prata · bronze · especial Pandora),
+   reflexo que segue o ponteiro (:before com --gx/--gy) e estados
+   desbloqueada/bloqueada. O tilt é conduzido pelo componente sobre
+   uma superfície fixa (sem realimentação de transform).
+   ============================================================ */
+:root {
+  --conq-bronze: var(--p-color-8a4d17);
+  --conq-prata: var(--p-color-5d584c);
+}
+.dark {
+  --conq-bronze: var(--p-color-d78f4e);
+  --conq-prata: var(--p-color-b6b0a0);
+}
+
+.conquista-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow:
+    0 1px 0 var(--border),
+    0 24px 48px -28px rgba(var(--p-rgb-0-0-0),0.3);
+  transition:
+    transform 0.3s var(--ease-out-expo),
+    border-color 0.3s,
+    box-shadow 0.35s var(--ease-out-expo);
+}
+
+/* Brilho especular que segue o ponteiro (camada atrás dos cards) */
+.conquista-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    260px circle at var(--gx, 50%) var(--gy, -32%),
+    var(--conq-brilho, rgba(var(--p-rgb-255-255-255),0.3)),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+/* Filete de nível no topo (identidade dourada champagne → grafite) */
+.conquista-card::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--conq-filete, var(--primary)), transparent);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .conquista-card:hover {
+    border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+    box-shadow:
+      0 2px 0 color-mix(in srgb, var(--primary) 30%, transparent),
+      0 30px 62px -30px rgba(var(--p-rgb-20-16-5),0.45);
+  }
+  .conquista-card:hover::before,
+  .conquista-card:focus-within::before {
+    opacity: 1;
+  }
+}
+.conquista-card:focus-within {
+  border-color: var(--ring);
+}
+
+/* Materiais por nível */
+.conquista-ouro {
+  --conq-metal-claro: var(--p-color-ffdf8a);
+  --conq-metal: var(--p-color-f2b824);
+  --conq-metal-escuro: var(--p-color-a06a06);
+  --conq-glow: rgba(var(--p-rgb-242-184-36),0.5);
+  --conq-icone: var(--p-color-3f2a00);
+  --conq-filete: var(--p-color-f2b824);
+  --conq-brilho: rgba(var(--p-rgb-255-244-214),0.4);
+  background:
+    radial-gradient(ellipse 330px 200px at 88% -14%, color-mix(in srgb, var(--p-color-f2b824) 18%, transparent), transparent 78%),
+    var(--card);
+}
+.conquista-prata {
+  --conq-metal-claro: var(--p-color-fbfaf6);
+  --conq-metal: var(--p-color-d3cdc2);
+  --conq-metal-escuro: var(--p-color-8f887a);
+  --conq-glow: rgba(var(--p-rgb-160-155-140),0.42);
+  --conq-icone: var(--p-color-3f3a30);
+  --conq-filete: var(--p-color-cfc9bd);
+  --conq-brilho: rgba(var(--p-rgb-255-255-255),0.42);
+  background:
+    radial-gradient(ellipse 330px 200px at 88% -14%, color-mix(in srgb, var(--p-color-d3cdc2) 12%, transparent), transparent 78%),
+    var(--card);
+}
+.conquista-bronze {
+  --conq-metal-claro: var(--p-color-f2bd8d);
+  --conq-metal: var(--p-color-c98547);
+  --conq-metal-escuro: var(--p-color-8a4d17);
+  --conq-glow: rgba(var(--p-rgb-191-121-58),0.45);
+  --conq-icone: var(--p-color-33200c);
+  --conq-filete: var(--p-color-c98547);
+  --conq-brilho: rgba(var(--p-rgb-255-232-208),0.36);
+  background:
+    radial-gradient(ellipse 330px 200px at 88% -14%, color-mix(in srgb, var(--p-color-c98547) 15%, transparent), transparent 78%),
+    var(--card);
+}
+/* Especial Pandora: bezel preto, face dourada e ícone osso (identidade da plataforma) */
+.conquista-pandora {
+  --conq-metal-claro: var(--p-color-ffe193);
+  --conq-metal: var(--p-color-f2b824);
+  --conq-metal-escuro: var(--p-color-7d5400);
+  --conq-glow: rgba(var(--p-rgb-242-184-36),0.55);
+  --conq-icone: var(--p-color-f4efe4);
+  --conq-filete: var(--p-color-8a6200);
+  --conq-brilho: rgba(var(--p-rgb-255-240-205),0.42);
+  background:
+    radial-gradient(ellipse 400px 230px at 50% -30%, color-mix(in srgb, var(--p-color-f2b824) 16%, transparent), transparent 80%),
+    var(--card);
+}
+
+.conquista-emblema {
+  position: relative;
+  isolation: isolate;
+  width: 76px;
+  height: 76px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  color: var(--conq-icone);
+  background: radial-gradient(
+    circle at 30% 26%,
+    var(--conq-metal-claro) 0%,
+    var(--conq-metal) 52%,
+    var(--conq-metal-escuro) 100%
+  );
+  box-shadow:
+    inset 0 2px 4px rgba(var(--p-rgb-255-255-255),0.55),
+    inset 0 -9px 16px rgba(var(--p-rgb-13-13-13),0.3),
+    0 16px 30px -14px var(--conq-glow);
+}
+.conquista-emblema::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border-radius: inherit;
+  border: 1px dashed color-mix(in srgb, var(--p-color-0d0d0d) 24%, transparent);
+  pointer-events: none;
+}
+.conquista-pandora .conquista-emblema {
+  box-shadow:
+    0 0 0 4px var(--p-color-0d0d0d),
+    inset 0 2px 4px rgba(var(--p-rgb-255-255-255),0.55),
+    inset 0 -9px 16px rgba(var(--p-rgb-13-13-13),0.3),
+    0 18px 32px -14px var(--conq-glow);
+}
+.conquista-pandora .conquista-emblema::before {
+  border-color: color-mix(in srgb, var(--p-color-f4efe4) 45%, transparent);
+}
+/* Reflexo de material fixo na face (um adereço; não é animação) */
+.conquista-emblema::after {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 92%;
+  height: 30%;
+  transform: translateX(-50%) rotate(-22deg);
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(var(--p-rgb-255-255-255),0.4), rgba(var(--p-rgb-255-255-255),0));
+  pointer-events: none;
+}
+
+/* Bloqueada: metal apagado, halo congelado e meta em traço */
+.conquista-bloqueada {
+  background: var(--card);
+}
+.conquista-bloqueada::after {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border) 0 10px,
+    rgba(var(--p-rgb-242-184-36),0.5) 10px 18px
+  );
+  opacity: 0.6;
+  height: 3px;
+}
+.conquista-bloqueada .conquista-emblema {
+  filter: grayscale(0.82);
+  opacity: 0.62;
+  box-shadow:
+    inset 0 2px 4px rgba(var(--p-rgb-255-255-255),0.4),
+    inset 0 -9px 16px rgba(var(--p-rgb-13-13-13),0.24),
+    0 12px 22px -14px rgba(var(--p-rgb-0-0-0),0.35);
+}
+.dark .conquista-bloqueada .conquista-emblema {
+  box-shadow:
+    inset 0 2px 4px rgba(var(--p-rgb-255-255-255),0.24),
+    inset 0 -9px 16px rgba(var(--p-rgb-0-0-0),0.4),
+    0 12px 22px -14px rgba(var(--p-rgb-0-0-0),0.6);
+}
+.conquista-bloqueada::before,
+.conquista-bloqueada .conquista-emblema::after {
+  opacity: 0 !important;
+}
+
+/* Poeira dourada global ao portal autenticado (AppLayout), sem cursor customizado. */
+.cursor-poeira {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  contain: strict;
+}
+
+  :where(html.motion-off) .cursor-poeira { display: none !important; }
+
+html.motion-off .cursor-poeira { display: none !important; }
+
+/* Widget “Próxima entrega”: entrada discreta e saída suave ao dispensar */
+@keyframes entrega-entrar {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.entrega-entrando {
+  animation: entrega-entrar 0.55s var(--ease-out-expo) both;
+}
+.entrega-saindo {
+  opacity: 0;
+  transform: translateY(10px) scale(0.97);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s var(--ease-out-expo);
+  pointer-events: none;
+}
+/* Login/inscrição mantêm papel claro mesmo quando o portal está em modo escuro.
+   Reatribuir tokens no painel evita texto claro herdado sobre fundo claro. */
+.auth-surface {
+  color-scheme: light;
+  --background: var(--p-color-f4efe4);
+  --foreground: var(--p-color-111111);
+  --card: var(--p-color-fbf8f1);
+  --card-foreground: var(--p-color-111111);
+  --muted-foreground: var(--p-color-5d584c);
+  --border: var(--p-color-d6cdb6);
+  --input: var(--p-color-958970);
+  --gold-dark: var(--p-color-8a6200);
+  --ring: var(--p-color-8a6200);
+  --destructive: var(--p-color-a32d1f);
+  color: var(--foreground);
+}
+.auth-input {
+  caret-color: var(--foreground);
+  -webkit-text-fill-color: var(--foreground);
+}
+.auth-input::placeholder {
+  color: var(--muted-foreground);
+  -webkit-text-fill-color: var(--muted-foreground);
+  opacity: 1;
+}
+.auth-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 5px;
+}
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover,
+.auth-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--foreground);
+  caret-color: var(--foreground);
+  -webkit-box-shadow: 0 0 0 1000px var(--background) inset;
+}
+.auth-input:autofill {
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+
+/* iOS student identity: retain Safari backface safeguards while restoring
+   decorative depth and lighting. Only the less stable blending is toned down. */
+@media (hover: none) and (pointer: coarse) {
+  .carteira-cena, .carteira-interacao { perspective: 1250px; -webkit-perspective: 1250px; }
+  .carteira-float { transform-style: preserve-3d; -webkit-transform-style: preserve-3d; }
+  .carteira-tilt {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+  .carteira-face {
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    -webkit-font-smoothing: antialiased;
+  }
+  .carteira-face .carteira-camada { transform-style: preserve-3d; }
+  /* Avoid expensive blend compositing on touch while keeping visible gloss. */
+  .carteira-face .carteira-brilho { opacity: .38; mix-blend-mode: normal; }
+  .carteira-face .carteira-vaivem { opacity: .42; mix-blend-mode: normal; }
+  .carteira-face[aria-hidden="true"] { pointer-events: none; }
+  .carteira-face.absolute { overscroll-behavior: contain; }
+}
+
+
+/* iOS / touch browsers: prevent involuntary viewport zoom on focus.
+   Safari auto-zooms form fields whose computed font is below 16px.
+   Do NOT disable user-scalable or pinch-to-zoom in the viewport. */
+@media (max-width: 1023px) and (pointer: coarse) {
+  input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='color']):not([type='file']):not([type='hidden']):not([type='submit']):not([type='button']):not([type='reset']):not([type='image']),
+  select,
+  textarea {
+    font-size: max(16px, 1rem) !important;
+  }
+}
+
+/* Touch screens keep :hover after tapping. Do not cover CTA labels with the
+   dark sweep layer on iPhone / Android. Keyboard focus remains available. */
+@media (hover: none), (pointer: coarse) {
+  .btn-sweep::before { content: none !important; }
+  .btn-sweep:hover { color: var(--primary-foreground) !important; }
+  .btn-sweep:active { filter: brightness(.94); }
+}
+
+/* A deliberate per-card opt-in, never a global accessibility override. */
+.carteira-cena, .carteira-interacao { -webkit-perspective: 1100px; }
+.carteira-float, .carteira-tilt { -webkit-transform-style: preserve-3d; }
+.carteira-face[aria-hidden="true"] { pointer-events: none; }
+html .carteira-cena[data-motion="disabled"] .carteira-float,
+html .carteira-cena[data-motion="disabled"] .carteira-holo { animation: none !important; }
+html .carteira-cena[data-motion="enabled"] .carteira-float { animation: carteira-flutuar 7.5s ease-in-out infinite !important; }
+html .carteira-cena[data-motion="enabled"] .carteira-holo { animation: holo-girar 16s linear infinite !important; }
+@media (hover: none) and (pointer: coarse) {
+  html .carteira-cena[data-motion="enabled"] .carteira-float { animation: carteira-flutuar-mobile 7.5s ease-in-out infinite !important; }
+}

@@ -1,0 +1,495 @@
+/* PANDORA / kinetic layer — independent, locally rendered, no remote scripts. */
+.atmosphere-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.section-atmosphere-slot { position:absolute;inset:0;z-index:1;pointer-events:none; }
+.section-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: .64;
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 53% 50%, black 28%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 85% at 53% 50%, black 28%, transparent 100%);
+}
+.section-atmosphere canvas { display: block; width: 100%; height: 100%; }
+.section-atmosphere--knowledge { opacity: .94; }
+.section-atmosphere--gallery { opacity: .7; }
+.section-atmosphere--portal { opacity: .83; }
+.section-atmosphere--footer { opacity: .32; }
+.section-atmosphere--access,
+.section-atmosphere--campus { opacity: .31; mix-blend-mode: multiply; }
+
+.knowledge-areas { background-image: radial-gradient(ellipse 75% 35% at 82% 12%, var(--p-color-86600d25), transparent 88%); }
+.knowledge-areas ul.space-y-2 a,
+.accessibility-row,
+.campus-gallery,
+.portal-callout-panel { transition: transform .48s cubic-bezier(.16,1,.3,1), border-color .4s ease, box-shadow .4s ease; }
+.knowledge-areas ul.space-y-2 a:hover { transform: translate3d(8px,0,0); }
+.campus-gallery:hover { border-color: var(--p-color-f2b82470); box-shadow: 0 35px 85px -38px var(--p-color-000c), 0 0 0 1px var(--p-color-f2b82424); }
+.campus-gallery-slide[data-active='true'] img { animation: panorama-breathe 10s ease-out forwards; }
+@keyframes panorama-breathe { from { transform:scale(1.055) } to { transform:scale(1) } }
+
+/* The gold photographic reel occupies its own space, but no longer dwarfs the fold. */
+.photo-reel { padding: 14px 0 12px; }
+.photo-reel-heading { margin-bottom: 11px; }
+.photo-reel-heading-copy h2 { font-size: clamp(19px, 1.8vw, 26px); margin-top: 4px; }
+.photo-reel-card { height: clamp(122px, 10.5vw, 154px); width: clamp(235px, 22vw, 300px); border-radius: 16px; }
+.photo-reel-copy { left: 15px; bottom: 13px; }
+.photo-reel-name { font-size: clamp(19px, 2vw, 24px); }
+.photo-reel-count { top: 10px; left: 13px; }
+.photo-reel-bottom { padding-top: 9px; }
+.photo-reel-viewport { contain: layout paint; }
+
+/* Soft, navigable atmosphere shared by every student area. */
+.portal-shell--motion { position: relative; isolation: isolate; background: transparent; }
+.portal-shell--motion::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 70% 50% at 100% 10%, var(--p-color-f2b82414), transparent 68%),
+              radial-gradient(ellipse 44% 75% at 0% 88%, var(--p-color-8a620010), transparent 80%);
+}
+.dark .portal-shell--motion::before {
+  background: radial-gradient(ellipse 65% 50% at 85% 0%, var(--p-color-f2b82411), transparent 74%),
+              radial-gradient(ellipse 60% 55% at 0% 85%, var(--p-color-f2b8240a), transparent 80%);
+}
+.portal-main { position: relative; }
+.portal-main::before {
+  content: ''; position: absolute; inset: 0 0 auto; height: min(55vh, 550px); z-index: -1; pointer-events: none;
+  background-image: radial-gradient(circle at 12% 45%, var(--p-color-f2b82416) 0 1px, transparent 2px),
+                    radial-gradient(circle at 70% 25%, var(--p-color-a87c181b) 0 1px, transparent 2px);
+  background-size: 61px 76px, 97px 113px;
+  -webkit-mask-image: linear-gradient(black,transparent);
+  mask-image: linear-gradient(black,transparent);
+}
+
+.portal-shell--motion > aside { background: var(--p-color-090907); }
+.portal-shell--motion > aside::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(ellipse 115% 35% at 0% -5%, var(--p-color-f2b82423), transparent 80%),
+              repeating-linear-gradient(125deg, transparent 0 28px, var(--p-color-f2b82406) 28px 29px);
+}
+.portal-shell--motion > aside .portal-sidebar-context {
+  background: linear-gradient(125deg, var(--p-color-eeb21d17), var(--p-color-ffffff05) 65%, transparent);
+  box-shadow: inset 0 1px 0 var(--p-color-f4efe410);
+}
+.portal-shell--motion > aside nav li a:not([aria-current='page']) { transition: transform .32s cubic-bezier(.16,1,.3,1), border-color .3s ease, background .3s ease; }
+.portal-shell--motion > aside nav li a:not([aria-current='page']):hover { transform: translateX(3px); }
+.portal-shell--motion > aside nav li a[aria-current='page'] { box-shadow: inset 0 1px 0 var(--p-color-fff4), 0 12px 32px -25px var(--p-color-f2b824); }
+
+/* App route headings: one hierarchy across notes, calendar, disciplines and map. */
+.portal-page-heading { position:relative; padding: clamp(18px, 3vw, 30px); overflow:hidden; isolation:isolate;
+  border: 1px solid var(--border); border-radius: 26px;
+  background: linear-gradient(128deg, color-mix(in srgb, var(--card) 94%, var(--primary)),var(--card) 68%);
+  box-shadow: 0 20px 50px -42px var(--p-color-0007);
+}
+.portal-page-heading::after { content:''; position:absolute; right: -9%; top:-110%; width:45%; aspect-ratio:1;
+  border:1px solid color-mix(in srgb,var(--primary) 14%,transparent); border-radius:50%; pointer-events:none;
+  box-shadow: 0 0 0 24px color-mix(in srgb,var(--primary) 3%,transparent), 0 0 0 65px color-mix(in srgb,var(--primary) 2%,transparent);
+}
+.portal-page-heading > * { position:relative; z-index:1; }
+.portal-page-heading-title { letter-spacing:-.055em; }
+.portal-page-heading-kicker { box-shadow: 0 6px 20px -18px var(--p-color-0006); }
+.portal-main :is(.disciplina-card, .projeto-card, .panel, .shadow-card) { transition: box-shadow .35s ease, border-color .35s ease, transform .45s cubic-bezier(.16,1,.3,1); }
+@media (hover:hover) {
+  .portal-main :is(.disciplina-card, .projeto-card):hover { transform:translateY(-3px); box-shadow: 0 25px 50px -36px var(--p-color-0007); }
+}
+
+/* Profile is an actual application workspace, not a generic landing banner. */
+.profile-command { background: radial-gradient(ellipse 70% 150% at 95% 10%,var(--p-color-61480f82),transparent 62%),
+                           linear-gradient(130deg,var(--p-color-171610),var(--p-color-090908) 70%);
+  border:1px solid var(--p-color-f2b82436); box-shadow:0 30px 65px -45px var(--p-color-0009);
+}
+.profile-command::before { content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(var(--p-color-f2b8245c) .7px,transparent 1.3px);background-size:23px 26px;
+  mask-image:radial-gradient(ellipse 43% 80% at 90% 35%,black,transparent);opacity:.48;
+}
+.profile-command-orbit { position:absolute; width:min(62%,400px); aspect-ratio:1; top:-135px; right:-160px;
+  border:1px solid var(--p-color-f2b82444); border-radius:50%;box-shadow:0 0 0 30px var(--p-color-f2b82407),0 0 0 66px var(--p-color-f2b82408),0 0 0 120px var(--p-color-f2b82405);
+  pointer-events:none;
+}
+.profile-command-avatar { background:linear-gradient(140deg,var(--p-color-ffe59a),var(--p-color-f2b824) 60%,var(--p-color-b78313)); box-shadow: 0 18px 38px -25px var(--p-color-f2b824); }
+.profile-command-chip { display:inline-flex; gap:8px;align-items:center; border:1px solid var(--p-color-f4efe41c); border-radius:12px;
+  background:var(--p-color-f4efe40e); padding:9px 12px; font-size:11px; color:var(--p-color-f4efe4d4);
+}
+.profile-command-action { display:inline-flex; gap:10px;align-items:center;justify-content:center; min-height:42px;
+  padding:10px 15px; border:1px solid var(--p-color-f4efe433); border-radius:14px; color:var(--p-color-f4efe4);
+  background:var(--p-color-f4efe40d); font-size:12px;font-weight:650;transition:transform .3s ease, background .3s ease;
+}
+.profile-command-action--main { background:var(--p-color-f2b824);color:var(--p-color-090907);border-color:var(--p-color-f2b824); }
+.profile-command-action:hover { transform:translateY(-2px);background:var(--p-color-f4efe421); }
+.profile-command-action--main:hover { background:var(--p-color-ffcf55); }
+
+/* A deliberate mobile art direction: portraits, full gestures, no tiny desktop remnant. */
+@media(max-width:767px) {
+  .section-atmosphere { opacity:.6; }
+  .section-atmosphere--campus,.section-atmosphere--access { opacity:.25; }
+  .photo-reel { padding: 15px 0 12px; }
+  .photo-reel-heading { margin-bottom:11px; }
+  .photo-reel-heading-copy h2 { max-width: 270px; font-size:clamp(18px,5vw,23px); }
+  .photo-reel-card { width: 222px; height:137px; }
+  .photo-reel-group { gap:9px; padding-right:9px; }
+  .photo-reel-name { font-size:21px; }
+  .portal-page-heading { padding:22px 20px; margin-bottom:24px; border-radius:23px; }
+  .portal-page-heading::after { right:-65%;top:-40%;width:90%; }
+  .profile-command { border-radius:23px; }
+  .profile-command-orbit { top:-80px;right:-160px;width:350px; }
+  .knowledge-areas ul.space-y-2 a:hover { transform:none; }
+  .entrance { min-height: 640px; height: 100svh; }
+  .entrance-content { padding:120px 20px 145px; }
+  .entrance h1 { font-size:clamp(52px,12.2vw,78px); }
+  .entrance-actions { gap:18px; }
+  .portal-shell--motion .portal-main { padding-left:16px;padding-right:16px; }
+  .portal-shell--motion nav[aria-label='Navegação principal móvel'] { box-shadow: 0 -15px 50px -30px var(--p-color-000b); }
+}
+@media(max-height:710px) and (min-width:768px) { .entrance { min-height: 560px; } .entrance-content { padding-top:105px; padding-bottom:110px; } }
+
+  :where(html.motion-off) .campus-gallery-slide[data-active='true'] img { animation:none; }
+  :where(html.motion-off) .portal-main :is(.disciplina-card,.projeto-card,.panel,.shadow-card),
+  :where(html.motion-off) .knowledge-areas ul.space-y-2 a { transition:none; }
+
+html.motion-off .campus-gallery-slide[data-active='true'] img { animation:none; }
+html.motion-off .portal-main :is(.disciplina-card,.projeto-card) { transition:none; }
+@media(forced-colors:active) { .section-atmosphere { display:none; } }
+
+.portal-background-dust { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events:none; user-select:none; }
+.portal-shell--motion > .fundo-ambiente { z-index:0; }
+.portal-shell--motion > main { z-index:1; }
+.portal-shell--motion > aside { z-index:3; }
+ :where(html.motion-off) .portal-background-dust { opacity:.7; } 
+
+/* THE PANDORA CURRENT — one WebGL world from the cover to the footer.
+   Sections do not paint full-width panels over the field. Depth comes from
+   photography, contrast and local glass surfaces; not sudden background jumps. */
+.pandora-journey { position:relative; isolation:isolate; background:var(--p-color-080b09); }
+.pandora-journey::before {
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(ellipse 70% 58% at 92% 18%,rgba(var(--p-rgb-109-75-22),.12),transparent 82%),
+  radial-gradient(ellipse 55% 73% at 2% 82%,rgba(var(--p-rgb-52-65-46),.085),transparent 82%),var(--p-color-080b09);
+}
+.journey-field { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.journey-field .section-atmosphere { position:absolute; inset:0; width:100%;height:100%;opacity:1;
+  mix-blend-mode:screen; -webkit-mask-image:none; mask-image:none; }
+.pandora-journey > main,.pandora-journey > footer { position:relative; z-index:1; }
+.pandora-journey :is(#sobre,#campus,#acessibilidade,.knowledge-areas,.campus-gallery,.portal-callout) {
+  position:relative; background-color:transparent; background-image:none;
+  border-block:0; box-shadow:none;
+}
+/* The photographs and the form-like text panels are local surfaces, not a page-wide wall. */
+.pandora-journey #sobre .img-editorial { border:1px solid rgba(var(--p-rgb-242-184-36),.18);box-shadow:0 38px 80px -46px var(--p-color-000e); }
+.pandora-journey #campus .campus-plan { border:1px solid rgba(var(--p-rgb-242-184-36),.2);transform-style:preserve-3d; }
+.pandora-journey #acessibilidade .accessibility-row { border-color:rgba(var(--p-rgb-244-239-228),.18); }
+.pandora-journey #acessibilidade .accessibility-row:is(:hover,:focus-within) {
+  background:linear-gradient(90deg,rgba(var(--p-rgb-242-184-36),.10),rgba(var(--p-rgb-242-184-36),.025) 72%,transparent);
+  color:var(--p-color-f4efe4);
+}
+.pandora-journey #acessibilidade .accessibility-row:is(:hover,:focus-within) :is(h3,span) { color:inherit; }
+.pandora-journey #acessibilidade .accessibility-row:is(:hover,:focus-within) p { color:var(--p-color-d8d3c6); }
+.pandora-journey #areas li[data-reveal] { --motion-line-strength:0; }
+.pandora-journey #areas li[data-reveal] > a {
+  background-image:linear-gradient(90deg,rgba(var(--p-rgb-242-184-36),calc(var(--motion-line-strength) * .08)),transparent 65%);
+  border:1px solid rgba(var(--p-rgb-242-184-36),calc(var(--motion-line-strength) * .13));
+}
+/* An editorial interlude, not an opaque mustard banner. */
+.pandora-journey .photo-reel { margin:0; padding:10px 0 8px; background:transparent;
+  border:0; color:var(--p-color-f4efe4); box-shadow:none; }
+.pandora-journey .photo-reel-heading { margin-bottom:9px; }
+.pandora-journey .photo-reel-heading-copy h2 { font-size:clamp(18px,1.55vw,23px); }
+.pandora-journey .photo-reel-card { width:clamp(205px,19vw,268px); height:clamp(106px,8.8vw,136px); }
+.pandora-journey .photo-reel-name { font-size:clamp(17px,1.6vw,22px); }
+.pandora-journey .photo-reel-bottom { padding-top:7px; }
+.pandora-journey .photo-reel-index { color:var(--p-color-f2b824); }
+.pandora-journey .photo-reel-pause { border-color:rgba(var(--p-rgb-242-184-36),.45); color:var(--p-color-f2b824); }
+.pandora-journey .photo-reel-card { border-color:rgba(var(--p-rgb-242-184-36),.17); box-shadow:0 12px 26px -20px var(--p-color-000c); }
+.pandora-journey .photo-reel-card:hover { border-color:rgba(var(--p-rgb-242-184-36),.55); }
+.pandora-journey .landing-footer { background:rgba(var(--p-rgb-5-7-6),.20);border-top:0; }
+.pandora-journey .landing-footer .text-stroke { opacity:.32; }
+.entrance-footer { border-top:0; }
+/* Small editorial micro-interactions: no full-card movement or flickering overlays. */
+.pandora-journey :is(.entrance-primary,.photo-reel-link,.photo-reel-pause) { transition-duration:.32s; }
+.pandora-journey .photo-reel-card img { transition:transform .95s cubic-bezier(.16,1,.3,1),filter .8s ease; }
+@media (max-width:767px) {
+  .pandora-journey .photo-reel-card { width:195px;height:114px; }
+  .pandora-journey .photo-reel-heading { gap:10px; flex-wrap:wrap; }
+  .pandora-journey :is(#sobre,#campus,#acessibilidade,.knowledge-areas,.campus-gallery) { background:transparent; }
+  .pandora-journey #areas li[data-reveal] > a { background-image:none; border-color:transparent; }
+}
+
+  :where(html.motion-off) .journey-field .section-atmosphere { opacity:.4; }
+  :where(html.motion-off) .pandora-journey #areas li[data-reveal] > a { background-image:none; }
+
+html.motion-off .journey-field .section-atmosphere { opacity:.4; }
+html.motion-off .pandora-journey #areas li[data-reveal] > a { background-image:none; }
+
+.portal-access-menu { position: relative; isolation: isolate; }
+.portal-access-trigger {
+  min-height: 43px;
+  display: inline-flex; align-items: center; gap: 11px;
+  padding: 10px 19px;
+  border: 1px solid rgba(var(--p-rgb-242-184-36),.8); border-radius: 999px;
+  background: var(--p-color-f2b824); color: var(--p-color-10100d);
+  font-size: 13px; font-weight: 800; white-space: nowrap;
+  box-shadow: 0 8px 28px -18px rgba(var(--p-rgb-242-184-36),.65);
+  transition: background .25s ease, box-shadow .35s ease, transform .35s cubic-bezier(.16,1,.3,1);
+}
+.portal-access-trigger:hover,
+.portal-access-trigger[aria-expanded='true'] { background: var(--p-color-ffd05a); box-shadow: 0 16px 32px -18px rgba(var(--p-rgb-242-184-36),.62); }
+.portal-access-chevron { transition: transform .36s cubic-bezier(.16,1,.3,1); }
+.portal-access-chevron[data-open='true'] { transform: rotate(-180deg); }
+.portal-access-panel {
+  position: absolute; top: 100%; right: 0; z-index: 100;
+  width: min(315px, calc(100vw - 24px));
+  padding: 12px; border: 1px solid rgba(var(--p-rgb-242-184-36),.22); border-radius: 24px;
+  background: rgba(var(--p-rgb-14-15-13),.97); backdrop-filter: blur(26px);
+  box-shadow: 0 35px 70px -30px rgba(var(--p-rgb-0-0-0),.8), inset 0 1px rgba(var(--p-rgb-255-255-255),.06);
+  transform-origin: 85% 0;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translate3d(0,-10px,0) scale(.96);
+  transition: opacity .24s ease, transform .42s cubic-bezier(.16,1,.3,1), visibility 0s linear .42s;
+}
+.portal-access-panel[data-open='true'] {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translate3d(0,0,0) scale(1);
+  transition: opacity .22s ease, transform .48s cubic-bezier(.16,1,.3,1), visibility 0s;
+}
+.portal-access-caption {
+  padding: 9px 10px 12px;
+  font-family: var(--font-mono), monospace; letter-spacing: .16em;
+  font-size: 10px; text-transform: uppercase; color: rgba(var(--p-rgb-244-239-228),.54);
+}
+.portal-access-option {
+  display: flex; align-items: center; gap: 12px; min-height: 68px;
+  border: 1px solid transparent; border-radius: 16px; padding: 10px;
+  color: var(--p-color-f4efe4);
+  transition: background .3s ease, border-color .3s ease, transform .35s cubic-bezier(.16,1,.3,1);
+}
+.portal-access-option + .portal-access-option { margin-top: 5px; }
+.portal-access-option:hover,
+.portal-access-option:focus-visible { background: rgba(var(--p-rgb-242-184-36),.095); border-color: rgba(var(--p-rgb-242-184-36),.24); transform: translateX(2px); }
+.portal-access-icon {
+  display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0;
+  border-radius: 14px; background: rgba(var(--p-rgb-242-184-36),.10); color: var(--p-color-f2b824);
+}
+.portal-access-option strong { display: block; font-size: 14px; font-weight: 750; }
+.portal-access-option small { display: block; margin-top: 3px; font-size: 11px; color: rgba(var(--p-rgb-244-239-228),.58); }
+.portal-access-arrow { flex-shrink: 0; opacity: .55; transition: transform .3s ease, opacity .3s ease; }
+.portal-access-option:hover .portal-access-arrow { opacity: 1; transform: translate(2px,-2px); }
+
+
+@media (min-width: 1024px) {
+  .portal-shell--collapsible {
+    grid-template-columns: var(--portal-sidebar-width, 272px) minmax(0,1fr);
+    transition: grid-template-columns .62s cubic-bezier(.16,1,.3,1);
+  }
+}
+.portal-sidebar-nav-label {
+  display: block; min-width: 0; max-width: 188px; overflow: hidden;
+  opacity: 1; white-space: nowrap; text-overflow: clip;
+  transition: opacity .22s ease, max-width .54s cubic-bezier(.16,1,.3,1), transform .4s cubic-bezier(.16,1,.3,1);
+}
+.portal-sidebar--collapsed .portal-sidebar-nav-label {
+  max-width: 0; opacity: 0; transform: translateX(-8px);
+}
+.portal-sidebar--collapsed nav li a { justify-content: center; gap: 0; }
+.portal-sidebar--collapsed nav li a > span:first-child { flex-shrink: 0; }
+.portal-shell--motion > aside.portal-sidebar--collapsed nav li a:not([aria-current='page']):hover { transform: scale(1.03); }
+.portal-sidebar-toggle { transition: background .25s ease, border-color .25s ease, transform .36s cubic-bezier(.16,1,.3,1); }
+.portal-sidebar-toggle:hover { border-color: rgba(var(--p-rgb-242-184-36),.7); background: rgba(var(--p-rgb-242-184-36),.11); transform: scale(1.045); }
+
+  :where(html.motion-off) .portal-access-trigger,:where(html.motion-off) .portal-access-chevron,:where(html.motion-off) .portal-access-panel,:where(html.motion-off) .portal-access-option,:where(html.motion-off) .portal-access-arrow,
+  :where(html.motion-off) .portal-shell--collapsible,:where(html.motion-off) .portal-sidebar-nav-label,:where(html.motion-off) .portal-sidebar-toggle { transition: none !important; }
+
+html.motion-off :is(.portal-access-trigger,.portal-access-chevron,.portal-access-panel,.portal-access-option,.portal-access-arrow,.portal-shell--collapsible,.portal-sidebar-nav-label,.portal-sidebar-toggle) { transition: none !important; }
+
+
+.pandora-journey .journey-field {
+  position:fixed;
+  inset:0 0 auto 0;
+  height:100vh; /* deliberate: unlike 100svh/dvh, no resize when URL bar retracts */
+  width:100%;
+  contain:layout paint;
+  overflow:hidden;
+}
+.pandora-journey .journey-field .section-atmosphere {
+  position:absolute;inset:0;width:100%;height:100%;
+}
+
+
+@media (min-width: 1024px) {
+  .portal-shell--collapsible > aside {
+    height: 100dvh;
+    min-height: 0;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .portal-shell--collapsible[data-sidebar-collapsed='false'] {
+    --portal-sidebar-width: 248px !important;
+  }
+  .portal-shell--collapsible .portal-main {
+    padding-inline: clamp(20px, 3vw, 38px);
+  }
+}
+
+/* Columns follow the content region, not the outer viewport: a 1024px
+   desktop with an expanded sidebar should not squeeze two narrow cards. */
+@supports (container-type: inline-size) {
+  .disciplinas-workspace { container-type: inline-size; }
+  .disciplinas-workspace .disciplinas-grid { grid-template-columns: minmax(0, 1fr); }
+  @container (min-width: 690px) {
+    .disciplinas-workspace .disciplinas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @container (min-width: 1140px) {
+    .disciplinas-workspace .disciplinas-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .portal-main .student-welcome { grid-template-columns: minmax(0, 1fr); }
+  .portal-main .student-welcome .welcome-photo { min-height: 220px; }
+}
+@media (max-width: 639px) {
+  .portal-shell--collapsible .portal-main {
+    padding-inline: 14px;
+    padding-bottom: calc(112px + env(safe-area-inset-bottom));
+  }
+  .portal-main .portal-topbar { gap: 8px; }
+  .portal-main .portal-topbar .portal-breadcrumb { min-width: 0; flex-wrap: wrap; }
+  .portal-main .portal-topbar .portal-topbar-actions .portal-campus-link { display: none; }
+  .portal-main .portal-page-heading { padding: 20px 18px; }
+  .portal-main .portal-page-heading h1 {
+    font-size: clamp(30px, 8.4vw, 43px);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+  .portal-main .portal-page-heading p { overflow-wrap: anywhere; }
+  .portal-main .student-welcome { grid-template-columns: minmax(0, 1fr); }
+  .portal-main .student-welcome > div:first-child { padding: 24px 20px; }
+  .portal-main .student-welcome h2 { font-size: clamp(30px, 8.2vw, 40px); }
+  .disciplinas-toolbar { padding: 14px; gap: 13px; }
+  .disciplinas-toolbar .disciplinas-search { flex: 1 0 100%; width: 100%; max-width: none; }
+  .disciplinas-toolbar .disciplinas-filters {
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .disciplinas-toolbar .disciplinas-filters button { flex: none; padding-inline: 12px; }
+  .disciplinas-toolbar .disciplinas-order { flex: 1 1 100%; justify-content: space-between; }
+  .disciplinas-toolbar .disciplinas-order select { min-width: 0; max-width: 72%; }
+  .portal-bottom-nav a { min-height: 58px; }
+}
+@media (max-width: 370px) {
+  .portal-bottom-nav li a { font-size: 9px; gap: 3px; }
+  .portal-bottom-nav li a > span:first-child { max-width: 25px; }
+  .portal-shell--collapsible .portal-main { padding-inline: 12px; }
+}
+
+  :where(html.motion-off) .portal-shell--collapsible { transition: none; }
+
+
+
+.portal-shell--motion .portal-page-heading {
+  border: 0;
+  border-block: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: clamp(20px, 3vw, 32px) 0;
+  overflow: visible;
+}
+.portal-shell--motion .portal-page-heading::after { content: none; }
+.portal-shell--motion .portal-page-heading-kicker {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  gap: 12px;
+}
+.portal-shell--motion .portal-page-heading-title {
+  max-width: 18ch;
+  letter-spacing: -.058em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+.portal-shell--motion .portal-page-heading p.mt-4 {
+  max-width: 70ch;
+  line-height: 1.65;
+}
+.portal-shell--motion .student-welcome {
+  border: 1px solid var(--border);
+  border-radius: 19px;
+  box-shadow: none;
+  grid-template-columns: minmax(0, 1.18fr) minmax(285px, .82fr);
+}
+.portal-shell--motion .student-welcome > div:first-child {
+  padding: clamp(25px, 3vw, 42px);
+}
+.portal-shell--motion .student-welcome h2 {
+  font-size: clamp(35px, 3.5vw, 54px);
+  line-height: 1.08;
+}
+.portal-shell--motion .student-workspace-index {
+  background: color-mix(in srgb, var(--card) 93%, var(--primary));
+}
+.portal-shell--motion .student-workspace-link:hover {
+  background: color-mix(in srgb, var(--card) 94%, var(--primary));
+}
+.portal-shell--motion .disciplina-card {
+  border-radius: 17px;
+  box-shadow: none;
+  transform: none;
+}
+.portal-shell--motion .disciplina-card:hover {
+  border-color: var(--input);
+  box-shadow: 0 14px 36px -30px rgba(0,0,0,.45);
+  transform: none;
+}
+.portal-shell--motion .disciplina-card > div:first-child { aspect-ratio: 16/10; }
+.portal-shell--motion .disciplina-card .disciplina-foto { transition: transform .7s cubic-bezier(.16,1,.3,1); }
+@media (hover: hover) {
+  .portal-shell--motion .disciplina-card:hover .disciplina-foto { transform: scale(1.035); }
+}
+
+/* Public pages: make room for the photography and one well-chosen display
+   moment, not layered floating panels, ornamental rings and shadow stacks. */
+.pandora-journey .portal-callout-panel {
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.pandora-journey .knowledge-areas > div > div > ul > li a {
+  text-decoration-thickness: 1px;
+}
+.pandora-journey .photo-reel-card {
+  box-shadow: none;
+}
+@media (max-width: 1023px) {
+  .portal-shell--motion .student-welcome { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 639px) {
+  .portal-shell--motion .portal-page-heading {
+    padding: 20px 0 25px;
+    border-radius: 0;
+    margin-bottom: 24px;
+  }
+  .portal-shell--motion .portal-page-heading h1 {
+    font-size: clamp(30px, 8vw, 42px);
+    overflow-wrap: normal;
+    text-wrap: balance;
+  }
+  .portal-shell--motion .student-welcome > div:first-child {
+    padding: 26px 21px;
+  }
+  .portal-shell--motion .student-welcome h2 { font-size: clamp(33px, 8.7vw, 42px); }
+  .portal-shell--motion .student-workspace-index { padding: 24px 21px; }
+}
+
+  :where(html.motion-off) .portal-shell--motion .disciplina-card .disciplina-foto,
+  :where(html.motion-off) .portal-shell--motion .student-workspace-link * { transition: none !important; }
+
+html.motion-off .portal-shell--motion .disciplina-card .disciplina-foto {
+  transition: none !important;
+}

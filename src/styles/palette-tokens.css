@@ -1,0 +1,758 @@
+
+:root {
+  --p-color-000: #000;
+  --p-color-000000: #000000;
+  --p-color-0006: #0006;
+  --p-color-0007: #0007;
+  --p-color-0009: #0009;
+  --p-color-000b: #000b;
+  --p-color-000c: #000c;
+  --p-color-000e: #000e;
+  --p-color-050505: #050505;
+  --p-color-05050585: #05050585;
+  --p-color-050505d9: #050505d9;
+  --p-color-070908: #070908;
+  --p-color-080b09: #080b09;
+  --p-color-080b0a: #080b0a;
+  --p-color-090907: #090907;
+  --p-color-090908: #090908;
+  --p-color-090b0a: #090b0a;
+  --p-color-0b0b0a: #0b0b0a;
+  --p-color-0c0c0b: #0c0c0b;
+  --p-color-0d0d0d: #0d0d0d;
+  --p-color-0d0d0d0d: #0d0d0d0d;
+  --p-color-0d0d0d44: #0d0d0d44;
+  --p-color-0d0d0d55: #0d0d0d55;
+  --p-color-0d0d0d70: #0d0d0d70;
+  --p-color-0d0d0d75: #0d0d0d75;
+  --p-color-0d0d0d80: #0d0d0d80;
+  --p-color-0d0d0d99: #0d0d0d99;
+  --p-color-0d0d0d9c: #0d0d0d9c;
+  --p-color-0d0d0d9d: #0d0d0d9d;
+  --p-color-0d0d0dcc: #0d0d0dcc;
+  --p-color-0d0d0dcf: #0d0d0dcf;
+  --p-color-0d0d0de8: #0d0d0de8;
+  --p-color-0d0d0df0: #0d0d0df0;
+  --p-color-0d0d0df5: #0d0d0df5;
+  --p-color-0d0f0e: #0d0f0e;
+  --p-color-10100d: #10100d;
+  --p-color-111: #111;
+  --p-color-111111: #111111;
+  --p-color-131311: #131311;
+  --p-color-131512: #131512;
+  --p-color-14120ee8: #14120ee8;
+  --p-color-141414: #141414;
+  --p-color-151512: #151512;
+  --p-color-151513: #151513;
+  --p-color-16140d: #16140d;
+  --p-color-171610: #171610;
+  --p-color-171714: #171714;
+  --p-color-171717: #171717;
+  --p-color-171815: #171815;
+  --p-color-191d17: #191d17;
+  --p-color-1c1b18: #1c1b18;
+  --p-color-1c1c1a: #1c1c1a;
+  --p-color-23211c: #23211c;
+  --p-color-241800: #241800;
+  --p-color-242820: #242820;
+  --p-color-26241f: #26241f;
+  --p-color-27251e: #27251e;
+  --p-color-28251e: #28251e;
+  --p-color-2a2410: #2a2410;
+  --p-color-2d2b25: #2d2b25;
+  --p-color-2d68a0: #2d68a0;
+  --p-color-2f6b3a: #2f6b3a;
+  --p-color-33200c: #33200c;
+  --p-color-333: #333;
+  --p-color-33302a: #33302a;
+  --p-color-3a362c: #3a362c;
+  --p-color-3d2f00: #3d2f00;
+  --p-color-3d2f0040: #3d2f0040;
+  --p-color-3f2a00: #3f2a00;
+  --p-color-3f3a30: #3f3a30;
+  --p-color-443719: #443719;
+  --p-color-4a391a: #4a391a;
+  --p-color-4a463b: #4a463b;
+  --p-color-4e4638: #4e4638;
+  --p-color-534d42: #534d42;
+  --p-color-5b3d09: #5b3d09;
+  --p-color-5d584c: #5d584c;
+  --p-color-61480f82: #61480f82;
+  --p-color-65704d: #65704d;
+  --p-color-666: #666;
+  --p-color-6b6450: #6b6450;
+  --p-color-6fcf84: #6fcf84;
+  --p-color-77736a: #77736a;
+  --p-color-7d5400: #7d5400;
+  --p-color-7fae6a: #7fae6a;
+  --p-color-86600d25: #86600d25;
+  --p-color-8a4d17: #8a4d17;
+  --p-color-8a6200: #8a6200;
+  --p-color-8a620010: #8a620010;
+  --p-color-8a8271: #8a8271;
+  --p-color-8b2f2f: #8b2f2f;
+  --p-color-8f8672: #8f8672;
+  --p-color-8f887a: #8f887a;
+  --p-color-92630c: #92630c;
+  --p-color-958970: #958970;
+  --p-color-97712a: #97712a;
+  --p-color-988e78: #988e78;
+  --p-color-9a5b00: #9a5b00;
+  --p-color-9fd487: #9fd487;
+  --p-color-a06a06: #a06a06;
+  --p-color-a32d1f: #a32d1f;
+  --p-color-a39d8c: #a39d8c;
+  --p-color-a87c181b: #a87c181b;
+  --p-color-a8a291: #a8a291;
+  --p-color-a97c1a: #a97c1a;
+  --p-color-ace: #ace;
+  --p-color-b4ae9f: #b4ae9f;
+  --p-color-b6b0a0: #b6b0a0;
+  --p-color-b78313: #b78313;
+  --p-color-b7ad98: #b7ad98;
+  --p-color-b97e00: #b97e00;
+  --p-color-bd8613: #bd8613;
+  --p-color-beb59c: #beb59c;
+  --p-color-bfb59a: #bfb59a;
+  --p-color-c48f00: #c48f00;
+  --p-color-c8c1af: #c8c1af;
+  --p-color-c9853f: #c9853f;
+  --p-color-c98547: #c98547;
+  --p-color-cfc9bd: #cfc9bd;
+  --p-color-d3cdc2: #d3cdc2;
+  --p-color-d6cdaf: #d6cdaf;
+  --p-color-d6cdb6: #d6cdb6;
+  --p-color-d78f4e: #d78f4e;
+  --p-color-d8d3c6: #d8d3c6;
+  --p-color-ddd5c0: #ddd5c0;
+  --p-color-e0a35e: #e0a35e;
+  --p-color-e8a91b: #e8a91b;
+  --p-color-e8e1d0: #e8e1d0;
+  --p-color-ecdfb8: #ecdfb8;
+  --p-color-ece6d6: #ece6d6;
+  --p-color-eeb21d17: #eeb21d17;
+  --p-color-f0a93a: #f0a93a;
+  --p-color-f2b824: #f2b824;
+  --p-color-f2b82405: #f2b82405;
+  --p-color-f2b82406: #f2b82406;
+  --p-color-f2b82407: #f2b82407;
+  --p-color-f2b82408: #f2b82408;
+  --p-color-f2b8240a: #f2b8240a;
+  --p-color-f2b82411: #f2b82411;
+  --p-color-f2b82414: #f2b82414;
+  --p-color-f2b82416: #f2b82416;
+  --p-color-f2b82423: #f2b82423;
+  --p-color-f2b82424: #f2b82424;
+  --p-color-f2b8242b: #f2b8242b;
+  --p-color-f2b82436: #f2b82436;
+  --p-color-f2b8243d: #f2b8243d;
+  --p-color-f2b82444: #f2b82444;
+  --p-color-f2b8245c: #f2b8245c;
+  --p-color-f2b82470: #f2b82470;
+  --p-color-f2b82477: #f2b82477;
+  --p-color-f2b82478: #f2b82478;
+  --p-color-f2b8248f: #f2b8248f;
+  --p-color-f2bd8d: #f2bd8d;
+  --p-color-f2d57a: #f2d57a;
+  --p-color-f3d68c: #f3d68c;
+  --p-color-f4efe4: #f4efe4;
+  --p-color-f4efe40d: #f4efe40d;
+  --p-color-f4efe40e: #f4efe40e;
+  --p-color-f4efe410: #f4efe410;
+  --p-color-f4efe418: #f4efe418;
+  --p-color-f4efe41c: #f4efe41c;
+  --p-color-f4efe421: #f4efe421;
+  --p-color-f4efe424: #f4efe424;
+  --p-color-f4efe42a: #f4efe42a;
+  --p-color-f4efe433: #f4efe433;
+  --p-color-f4efe438: #f4efe438;
+  --p-color-f4efe440: #f4efe440;
+  --p-color-f4efe455: #f4efe455;
+  --p-color-f4efe478: #f4efe478;
+  --p-color-f4efe4b8: #f4efe4b8;
+  --p-color-f4efe4d4: #f4efe4d4;
+  --p-color-f4efe4d9: #f4efe4d9;
+  --p-color-f7f3e8: #f7f3e8;
+  --p-color-fbf8f1: #fbf8f1;
+  --p-color-fbfaf6: #fbfaf6;
+  --p-color-ff8a78: #ff8a78;
+  --p-color-ffcb51: #ffcb51;
+  --p-color-ffcf55: #ffcf55;
+  --p-color-ffd05a: #ffd05a;
+  --p-color-ffd76b: #ffd76b;
+  --p-color-ffdc77: #ffdc77;
+  --p-color-ffde80: #ffde80;
+  --p-color-ffdf8a: #ffdf8a;
+  --p-color-ffe193: #ffe193;
+  --p-color-ffe19b: #ffe19b;
+  --p-color-ffe4a0: #ffe4a0;
+  --p-color-ffe59a: #ffe59a;
+  --p-color-fff2c7: #fff2c7;
+  --p-color-fff4: #fff4;
+  --p-color-fff6dd: #fff6dd;
+  --p-color-fff9e9: #fff9e9;
+  --p-color-fff9e9bf: #fff9e9bf;
+  --p-color-fffef7: #fffef7;
+  --p-color-ffffff: #ffffff;
+  --p-color-ffffff05: #ffffff05;
+  --p-rgb-0-0-0: 0,0,0;
+  --p-rgb-5-7-6: 5,7,6;
+  --p-rgb-5-8-6: 5,8,6;
+  --p-rgb-6-8-7: 6,8,7;
+  --p-rgb-7-8-8: 7,8,8;
+  --p-rgb-7-9-8: 7,9,8;
+  --p-rgb-9-11-10: 9,11,10;
+  --p-rgb-13-13-13: 13,13,13;
+  --p-rgb-14-15-13: 14,15,13;
+  --p-rgb-17-16-12: 17,16,12;
+  --p-rgb-20-16-5: 20,16,5;
+  --p-rgb-52-65-46: 52,65,46;
+  --p-rgb-61-47-0: 61,47,0;
+  --p-rgb-73-92-62: 73,92,62;
+  --p-rgb-109-75-22: 109,75,22;
+  --p-rgb-117-73-0: 117,73,0;
+  --p-rgb-123-83-17: 123,83,17;
+  --p-rgb-138-98-0: 138,98,0;
+  --p-rgb-151-97-7: 151,97,7;
+  --p-rgb-157-104-14: 157,104,14;
+  --p-rgb-160-155-140: 160,155,140;
+  --p-rgb-174-104-25: 174,104,25;
+  --p-rgb-174-117-16: 174,117,16;
+  --p-rgb-191-121-58: 191,121,58;
+  --p-rgb-228-160-34: 228,160,34;
+  --p-rgb-241-169-34: 241,169,34;
+  --p-rgb-242-164-35: 242,164,35;
+  --p-rgb-242-184-36: 242,184,36;
+  --p-rgb-244-239-228: 244,239,228;
+  --p-rgb-251-248-241: 251,248,241;
+  --p-rgb-255-232-208: 255,232,208;
+  --p-rgb-255-240-205: 255,240,205;
+  --p-rgb-255-244-214: 255,244,214;
+  --p-rgb-255-255-255: 255,255,255;
+  --brand-primary: #f2b824;
+  --brand-primary-rgb: 242,184,36;
+  --brand-light: #f4efe4;
+  --brand-night: #080b09;
+}
+
+html[data-palette="fiap"] {
+  --p-color-000: #000000;
+  --p-color-000000: #000000;
+  --p-color-0006: #00000066;
+  --p-color-0007: #00000077;
+  --p-color-0009: #00000099;
+  --p-color-000b: #000000bb;
+  --p-color-000c: #000000cc;
+  --p-color-000e: #000000ee;
+  --p-color-050505: #03040a;
+  --p-color-05050585: #03040a85;
+  --p-color-050505d9: #03040ad9;
+  --p-color-070908: #06070d;
+  --p-color-080b09: #08090f;
+  --p-color-080b0a: #08090f;
+  --p-color-090907: #06070d;
+  --p-color-090908: #06070d;
+  --p-color-090b0a: #08090f;
+  --p-color-0b0b0a: #08090f;
+  --p-color-0c0c0b: #0a0b11;
+  --p-color-0d0d0d: #0b0c12;
+  --p-color-0d0d0d0d: #0b0c120d;
+  --p-color-0d0d0d44: #0b0c1244;
+  --p-color-0d0d0d55: #0b0c1255;
+  --p-color-0d0d0d70: #0b0c1270;
+  --p-color-0d0d0d75: #0b0c1275;
+  --p-color-0d0d0d80: #0b0c1280;
+  --p-color-0d0d0d99: #0b0c1299;
+  --p-color-0d0d0d9c: #0b0c129c;
+  --p-color-0d0d0d9d: #0b0c129d;
+  --p-color-0d0d0dcc: #0b0c12cc;
+  --p-color-0d0d0dcf: #0b0c12cf;
+  --p-color-0d0d0de8: #0b0c12e8;
+  --p-color-0d0d0df0: #0b0c12f0;
+  --p-color-0d0d0df5: #0b0c12f5;
+  --p-color-0d0f0e: #0c0d13;
+  --p-color-10100d: #0c0d13;
+  --p-color-111: #0f1016;
+  --p-color-111111: #0f1016;
+  --p-color-131311: #101117;
+  --p-color-131512: #121319;
+  --p-color-14120ee8: #0f1016e8;
+  --p-color-141414: #121319;
+  --p-color-151512: #121319;
+  --p-color-151513: #121319;
+  --p-color-16140d: #101117;
+  --p-color-171610: #121319;
+  --p-color-171714: #14151b;
+  --p-color-171717: #15161c;
+  --p-color-171815: #14151b;
+  --p-color-191d17: #18191f;
+  --p-color-1c1b18: #18191f;
+  --p-color-1c1c1a: #191a20;
+  --p-color-23211c: #1e1f25;
+  --p-color-241800: #840632;
+  --p-color-242820: #222329;
+  --p-color-26241f: #202127;
+  --p-color-27251e: #212228;
+  --p-color-28251e: #212228;
+  --p-color-2a2410: #781236;
+  --p-color-2d2b25: #27282e;
+  --p-color-2d68a0: #2d68a0;
+  --p-color-2f6b3a: #2f6b3a;
+  --p-color-33200c: #781236;
+  --p-color-333: #313238;
+  --p-color-33302a: #35313c;
+  --p-color-3a362c: #393540;
+  --p-color-3d2f00: #840632;
+  --p-color-3d2f0040: #84063240;
+  --p-color-3f2a00: #840632;
+  --p-color-3f3a30: #3e3a45;
+  --p-color-443719: #781236;
+  --p-color-4a391a: #781236;
+  --p-color-4a463b: #48444f;
+  --p-color-4e4638: #494550;
+  --p-color-534d42: #504c57;
+  --p-color-5b3d09: #7d0c34;
+  --p-color-5d584c: #5a5661;
+  --p-color-61480f82: #78123682;
+  --p-color-65704d: #64606b;
+  --p-color-666: #66646d;
+  --p-color-6b6450: #64606b;
+  --p-color-6fcf84: #6fcf84;
+  --p-color-77736a: #76727d;
+  --p-color-7d5400: #840632;
+  --p-color-7fae6a: #7fae6a;
+  --p-color-86600d25: #860d3725;
+  --p-color-8a4d17: #8c153f;
+  --p-color-8a6200: #840632;
+  --p-color-8a620010: #84063210;
+  --p-color-8a8271: #84808b;
+  --p-color-8b2f2f: #8b2f2f;
+  --p-color-8f8672: #86828d;
+  --p-color-8f887a: #8a8691;
+  --p-color-92630c: #920c3b;
+  --p-color-958970: #88848f;
+  --p-color-97712a: #a8194b;
+  --p-color-988e78: #8e8a95;
+  --p-color-9a5b00: #930738;
+  --p-color-9fd487: #9fd487;
+  --p-color-a06a06: #9f073c;
+  --p-color-a32d1f: #a32d1f;
+  --p-color-a39d8c: #9e9aa5;
+  --p-color-a87c181b: #a8184a1b;
+  --p-color-a8a291: #a29ea9;
+  --p-color-a97c1a: #aa194c;
+  --p-color-ace: #aaccee;
+  --p-color-b4ae9f: #b0acb7;
+  --p-color-b6b0a0: #aba9b2;
+  --p-color-b78313: #b7134c;
+  --p-color-b7ad98: #aeaab5;
+  --p-color-b97e00: #b10843;
+  --p-color-bd8613: #bd134e;
+  --p-color-beb59c: #adabb4;
+  --p-color-bfb59a: #bfb59a;
+  --p-color-c48f00: #bb0947;
+  --p-color-c8c1af: #c4c1c5;
+  --p-color-c9853f: #df2969;
+  --p-color-c98547: #e0306e;
+  --p-color-cfc9bd: #cecbcf;
+  --p-color-d3cdc2: #d3d0d4;
+  --p-color-d6cdaf: #cbc8cc;
+  --p-color-d6cdb6: #cecbcf;
+  --p-color-d78f4e: #e3427a;
+  --p-color-d8d3c6: #d7d4d8;
+  --p-color-ddd5c0: #d7d4d8;
+  --p-color-e0a35e: #e6588a;
+  --p-color-e8a91b: #e81b63;
+  --p-color-e8e1d0: #e4e1e5;
+  --p-color-ecdfb8: #dad7db;
+  --p-color-ece6d6: #e9e6ea;
+  --p-color-eeb21d17: #ee1d6617;
+  --p-color-f0a93a: #f03a7a;
+  --p-color-f2b824: #ed145b;
+  --p-color-f2b82405: #ed145b05;
+  --p-color-f2b82406: #ed145b06;
+  --p-color-f2b82407: #ed145b07;
+  --p-color-f2b82408: #ed145b08;
+  --p-color-f2b8240a: #ed145b0a;
+  --p-color-f2b82411: #ed145b11;
+  --p-color-f2b82414: #ed145b14;
+  --p-color-f2b82416: #ed145b16;
+  --p-color-f2b82423: #ed145b23;
+  --p-color-f2b82424: #ed145b24;
+  --p-color-f2b8242b: #ed145b2b;
+  --p-color-f2b82436: #ed145b36;
+  --p-color-f2b8243d: #ed145b3d;
+  --p-color-f2b82444: #ed145b44;
+  --p-color-f2b8245c: #ed145b5c;
+  --p-color-f2b82470: #ed145b70;
+  --p-color-f2b82477: #ed145b77;
+  --p-color-f2b82478: #ed145b78;
+  --p-color-f2b8248f: #ed145b8f;
+  --p-color-f2bd8d: #f28db0;
+  --p-color-f2d57a: #f27aa4;
+  --p-color-f3d68c: #f38cb0;
+  --p-color-f4efe4: #f4f1f5;
+  --p-color-f4efe40d: #f4f1f50d;
+  --p-color-f4efe40e: #f4f1f50e;
+  --p-color-f4efe410: #f4f1f510;
+  --p-color-f4efe418: #f4f1f518;
+  --p-color-f4efe41c: #f4f1f51c;
+  --p-color-f4efe421: #f4f1f521;
+  --p-color-f4efe424: #f4f1f524;
+  --p-color-f4efe42a: #f4f1f52a;
+  --p-color-f4efe433: #f4f1f533;
+  --p-color-f4efe438: #f4f1f538;
+  --p-color-f4efe440: #f4f1f540;
+  --p-color-f4efe455: #f4f1f555;
+  --p-color-f4efe478: #f4f1f578;
+  --p-color-f4efe4b8: #f4f1f5b8;
+  --p-color-f4efe4d4: #f4f1f5d4;
+  --p-color-f4efe4d9: #f4f1f5d9;
+  --p-color-f7f3e8: #f8f5f9;
+  --p-color-fbf8f1: #fefbff;
+  --p-color-fbfaf6: #fefbff;
+  --p-color-ff8a78: #ff8a78;
+  --p-color-ffcb51: #f75990;
+  --p-color-ffcf55: #f75d93;
+  --p-color-ffd05a: #f86196;
+  --p-color-ffd76b: #f872a1;
+  --p-color-ffdc77: #f97da8;
+  --p-color-ffde80: #f986ae;
+  --p-color-ffdf8a: #fa8fb5;
+  --p-color-ffe193: #fa98ba;
+  --p-color-ffe19b: #faa0bf;
+  --p-color-ffe4a0: #fba4c3;
+  --p-color-ffe59a: #fa9fbf;
+  --p-color-fff2c7: #fcbbd2;
+  --p-color-fff4: #ffffff44;
+  --p-color-fff6dd: #f6f3f7;
+  --p-color-fff9e9: #fcf9fd;
+  --p-color-fff9e9bf: #fcf9fdbf;
+  --p-color-fffef7: #fefbff;
+  --p-color-ffffff: #ffffff;
+  --p-color-ffffff05: #ffffff05;
+  --p-rgb-0-0-0: 0,0,0;
+  --p-rgb-5-7-6: 4,5,11;
+  --p-rgb-5-8-6: 4,5,11;
+  --p-rgb-6-8-7: 5,6,12;
+  --p-rgb-7-8-8: 6,7,13;
+  --p-rgb-7-9-8: 6,7,13;
+  --p-rgb-9-11-10: 8,9,15;
+  --p-rgb-13-13-13: 11,12,18;
+  --p-rgb-14-15-13: 12,13,19;
+  --p-rgb-17-16-12: 12,13,19;
+  --p-rgb-20-16-5: 120,18,54;
+  --p-rgb-52-65-46: 54,55,61;
+  --p-rgb-61-47-0: 132,6,50;
+  --p-rgb-73-92-62: 77,75,84;
+  --p-rgb-109-75-22: 120,18,54;
+  --p-rgb-117-73-0: 132,6,50;
+  --p-rgb-123-83-17: 123,17,54;
+  --p-rgb-138-98-0: 132,6,50;
+  --p-rgb-151-97-7: 151,7,57;
+  --p-rgb-157-104-14: 157,14,64;
+  --p-rgb-160-155-140: 156,152,163;
+  --p-rgb-174-104-25: 174,25,77;
+  --p-rgb-174-117-16: 174,16,71;
+  --p-rgb-191-121-58: 217,32,97;
+  --p-rgb-228-160-34: 228,34,102;
+  --p-rgb-241-169-34: 241,34,106;
+  --p-rgb-242-164-35: 242,35,107;
+  --p-rgb-242-184-36: 237,20,91;
+  --p-rgb-244-239-228: 244,241,245;
+  --p-rgb-251-248-241: 254,251,255;
+  --p-rgb-255-232-208: 240,237,241;
+  --p-rgb-255-240-205: 238,235,239;
+  --p-rgb-255-244-214: 243,240,244;
+  --p-rgb-255-255-255: 255,255,255;
+  --brand-primary: #ed145b;
+  --brand-primary-rgb: 237,20,91;
+  --brand-light: #f8f7fa;
+  --brand-night: #090a10;
+  /* Semantic roles: explicit rather than inferred from each color literal. */
+  --background: #faf9fc;
+  --foreground: #15131a;
+  --surface: #fffafd;
+  --primary: #ed145b;
+  --primary-foreground: #09080d;
+  --secondary: #0b0b12;
+  --secondary-foreground: #f8f7fa;
+  --accent: #f9dce8;
+  --accent-foreground: #5d0d2c;
+  --muted: #f1e8ef;
+  --muted-foreground: #57505e;
+  --card: #fefbfd;
+  --card-foreground: #15131a;
+  --border: #d8cbd4;
+  --input: #a99ca8;
+  --ring: #c5094a;
+  --sidebar: #090910;
+  --sidebar-foreground: #f8f7fa;
+  --sidebar-muted: #b4a9b3;
+  --gold-dark: #ae1747;
+  --success: #24633a;
+  --success-foreground: #ffffff;
+  --warning: #945200;
+  --warning-foreground: #ffffff;
+  --destructive: #a32d1f;
+  --destructive-foreground: #ffffff;
+}
+html.dark[data-palette="fiap"] {
+  --background: #090a10;
+  --foreground: #f8f7fa;
+  --surface: #15141c;
+  --primary: #ed145b;
+  --primary-foreground: #09080d;
+  --secondary: #f8f7fa;
+  --secondary-foreground: #09080d;
+  --accent: #2b1522;
+  --accent-foreground: #ffc1d8;
+  --muted: #211921;
+  --muted-foreground: #c2b4c0;
+  --card: #17151d;
+  --card-foreground: #f8f7fa;
+  --border: #39303b;
+  --input: #61515d;
+  --ring: #f54a87;
+  --sidebar: #07080e;
+  --sidebar-foreground: #f8f7fa;
+  --sidebar-muted: #c1b5bd;
+  --gold-dark: #ff6d9e;
+  --success: #66d093;
+  --success-foreground: #09080d;
+  --warning: #ffc26c;
+  --warning-foreground: #09080d;
+  --destructive: #ff879d;
+  --destructive-foreground: #09080d;
+}
+html[data-palette="fiap"] .shadow-gold { box-shadow: 0 12px 28px -10px rgba(237,20,91,.46); }
+html[data-palette="fiap"] .btn-sweep::before { background: #0a0910; }
+html[data-palette="fiap"] .entrance-backdrop { filter: saturate(.86); }
+html[data-palette="fiap"] :is(.entrance-primary,.photo-reel-link,.photo-reel-pause) { transition-duration: .35s; }
+html[data-palette="fiap"] img[src*="logo-"] { filter: hue-rotate(-68deg) saturate(1.65); }
+html[data-palette="fiap"] .profile-command-avatar { background: linear-gradient(145deg,#ffd0e0,#ed145b 64%,#921343); }
+html[data-palette="fiap"] .portal-background-dust { opacity:.92; }
+html[data-palette="fiap"] .grain::after { opacity:.10; }
+/* Accessibility: never recolor semantic error/success with a global image filter. */
+html.contrast-high[data-palette="fiap"] { --ring: #ff7eab; }
+ html.motion-off[data-palette] * { transition-property: none; } 
+
+
+.palette-switch {
+  --switch-fg: var(--brand-light);
+  --switch-bg: rgba(11,11,16,.72);
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  width: max-content;
+  max-width: 100%;
+  padding: 4px;
+  border: 1px solid rgba(255,255,255,.21);
+  border-radius: 999px;
+  color: var(--switch-fg);
+  background: var(--switch-bg);
+  box-shadow: 0 12px 34px -25px rgba(0,0,0,.8);
+  backdrop-filter: blur(18px);
+}
+.palette-switch-title {
+  padding-inline: 9px 5px;
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  opacity: .72;
+}
+.palette-switch-option {
+  display: inline-flex;
+  min-height: 33px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  color: inherit;
+  white-space: nowrap;
+  background: transparent;
+  transition: color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.palette-switch-option[aria-pressed='true'] {
+  color: var(--brand-light);
+  background: rgba(255,255,255,.12);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.13);
+}
+.palette-switch-option:hover:not([aria-pressed='true']) { background: rgba(255,255,255,.07); }
+.palette-switch-option:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.palette-swatch { display:block; width:9px; height:9px; flex:none; border-radius:50%; }
+.palette-swatch--pandora { background:#f2b824; }
+.palette-swatch--fiap { background:#ed145b; }
+.palette-switch--nav { flex-shrink:0; }
+.palette-switch--nav .palette-switch-title { display:none; }
+.palette-icon {
+  position: relative;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 16px;
+  background: rgba(255,255,255,.04);
+  color: var(--sidebar-foreground);
+  transition: border-color .3s ease, background .3s ease, transform .3s ease;
+}
+.palette-icon:hover { border-color:var(--primary); background:rgba(255,255,255,.09); transform:translateY(-2px); }
+.palette-icon-dot { position:absolute; right:7px; bottom:7px; width:7px; height:7px; border-radius:50%; background:var(--primary); }
+.auth-experience .auth-surface > .auth-palette-control {
+  position: absolute;
+  z-index: 6;
+  inset: 18px 22px auto auto;
+  width: max-content;
+  height: max-content;
+  margin: 0;
+}
+.auth-experience .auth-palette-control .palette-switch { background:rgba(255,255,255,.74); border-color:rgba(11,11,16,.18); color:#17131a; box-shadow: 0 7px 20px -14px rgba(0,0,0,.35); }
+.auth-experience .auth-palette-control .palette-switch-option[aria-pressed='true'] { background:rgba(12,10,17,.09); color:#17131a; box-shadow:inset 0 0 0 1px rgba(12,10,17,.1); }
+@media(max-width:1170px) and (min-width:1024px) { .palette-switch--nav .palette-switch-option { padding-inline:7px; } }
+@media(max-width:1023px) {
+  .auth-experience .auth-surface > .auth-palette-control { top:19px; right:12px; }
+  .auth-experience .auth-palette-control .palette-switch-title { display:none; }
+  .auth-experience .auth-palette-control .palette-switch-option { min-height:30px; padding-inline:7px; font-size:10px; }
+  .auth-experience .auth-palette-control .palette-switch { padding:3px; }
+}
+@media(max-width:479px) {
+  .auth-experience .auth-surface > .auth-palette-control { top:82px; right:20px; }
+}
+ :where(html.motion-off) .palette-switch-option,:where(html.motion-off) .palette-icon { transition:none; transform:none!important; } 
+html.motion-off .palette-switch-option, html.motion-off .palette-icon { transition:none; transform:none!important; }
+
+
+.palette-switch { position:relative; }
+.palette-switch-option {position:relative;isolation:isolate;overflow:visible;}
+.palette-switch-option[aria-pressed='true'] {
+  background:transparent;
+  box-shadow:none;
+  color:var(--brand-light);
+}
+.palette-switch-option::after {
+  content:'';
+  position:absolute;
+  left:18%;right:18%;bottom:1px;
+  height:2px;
+  background:var(--primary);
+  border-radius:99px;
+  transform:scaleX(0);
+  opacity:.5;
+  transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .35s ease;
+}
+.palette-switch-option[aria-pressed='true']::after {transform:scaleX(1);opacity:1;}
+html[data-palette='fiap'] .palette-switch-option[aria-pressed='true'] {
+  background:transparent!important;
+  box-shadow:none!important;
+  border-radius:3px;
+}
+/* Native view transition: the new identity blooms from the control that was clicked. */
+::view-transition-old(root),::view-transition-new(root) {
+  animation:none;
+  mix-blend-mode:normal;
+}
+::view-transition-new(root) { z-index:2; }
+::view-transition-old(root) { z-index:1; }
+
+  :where(html.motion-off) .palette-switch-option::after {transition:none;}
+
+html.motion-off .palette-switch-option::after {transition:none;}
+
+
+.palette-switch[data-switch-pulse='true'] .palette-switch-option[aria-pressed='true']::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -5px -4px;
+  border: 1px solid var(--primary);
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  animation: pandora-palette-echo 540ms cubic-bezier(.2,.78,.25,1) both;
+}
+.palette-switch[data-switch-pulse='true'] .palette-switch-option[aria-pressed='true'] .palette-swatch {
+  animation: pandora-palette-dot 480ms cubic-bezier(.17,.85,.22,1) both;
+}
+.palette-icon[data-switch-pulse='true']::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  pointer-events: none;
+  border: 1.5px solid var(--primary);
+  border-radius: inherit;
+  animation: pandora-palette-echo 540ms cubic-bezier(.2,.78,.25,1) both;
+}
+@keyframes pandora-palette-echo {
+  0% { opacity: .8; transform: scale(.88); }
+  60% { opacity: .36; }
+  100% { opacity: 0; transform: scale(1.19); }
+}
+@keyframes pandora-palette-dot {
+  0% { transform: scale(.65); }
+  55% { transform: scale(1.38); }
+  100% { transform: scale(1); }
+}
+@media (max-width: 767px) {
+  /* Give the branded switch a direct, one-tap position on the landing nav. */
+  .entrance-nav .palette-icon--landing {
+    display: grid;
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(14, 12, 16, .7);
+    color: #f4efe4;
+    border-color: rgba(244,239,228,.28);
+  }
+  .entrance-nav .palette-icon--landing:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
+  .palette-switch .palette-switch-option {
+    min-height: 40px;
+    min-width: 67px;
+    transition-duration: 190ms;
+  }
+  .palette-switch .palette-swatch { width: 10px; height: 10px; }
+}
+
+  :where(html.motion-off) .palette-switch[data-switch-pulse='true'] .palette-switch-option::before,
+  :where(html.motion-off) .palette-switch[data-switch-pulse='true'] .palette-swatch,
+  :where(html.motion-off) .palette-icon[data-switch-pulse='true']::after { animation: none !important; }
+
+html.motion-off .palette-switch[data-switch-pulse='true'] .palette-switch-option::before,
+html.motion-off .palette-switch[data-switch-pulse='true'] .palette-swatch,
+html.motion-off .palette-icon[data-switch-pulse='true']::after { animation: none !important; }
+
+/* Mobile login: move identity switch into document flow, clear of Trocar area. */
+@media (max-width: 1023px) {
+  .auth-experience .auth-surface > .auth-palette-control {
+    position: relative;
+    inset: auto;
+    z-index: 5;
+    display: flex;
+    width: 100%;
+    max-width: 460px;
+    min-height: 40px;
+    margin: 0 auto 12px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 479px) {
+  .auth-experience .auth-surface > .auth-palette-control {
+    inset: auto;
+    margin-bottom: 14px;
+  }
+}
+
+/* On desktop FIAP's dark hover sweep needs contrasting white text. */
+@media (hover: hover) and (pointer: fine) {
+  html[data-palette="fiap"] .btn-sweep:hover { color: #fff; }
+}
